@@ -1,0 +1,99 @@
+# lesson 6 typography
+
+---
+
+typography is the way that text is arranged and presented
+
+
+
+### inherit
+
+the input form don't inherit from the parent, you need to define them separately
+
+```css
+input, button{
+  font: inherit;
+}
+```
+
+
+
+### text-configuration
+
+| text-configure  | common style                     | description                  |
+| --------------- | -------------------------------- | ---------------------------- |
+| text-decoration | underline, line through          |                              |
+| text-transform  | capitalize, uppercase, lowercase |                              |
+| text-align      | justify, right                   |                              |
+| text-indent     | 2em                              | skip space in the front line |
+
+
+
+### other configuration
+
+
+| configure      | description       |
+| -------------- | ----------------- |
+| line-height    | default for 1.2px |
+| letter-spacing | default for 0.1em |
+| word-spacing   | default for 0.1em |
+
+
+
+### font
+
+#### <u>font-weight</u> (bold)
+
+```css
+p {
+  font-weight: 400;
+}
+```
+
+normally 400 is default
+
+
+
+#### <u>font-style</u>
+
+```css
+p {
+  font-style: italic;
+}
+```
+
+italic, oblique(strong italic), normal
+
+
+
+#### <u>font-family</u>
+
+```css
+p {
+  font-family: 'Courier New', Courier, monospace;
+}
+```
+
+computer will apply the courier first, if not, it will choose the monospace
+
+
+
+##### main stream font family
+
+| font family | description          |
+| ----------- | -------------------- |
+| serif       | academic paper, news |
+| sans-serif  | web                  |
+| monospace   | coding               |
+| cursive     |                      |
+| fantasy     |                      |
+
+
+
+### use the font in google
+
+*   google font
+
+1.**link** paste the link in the html and apply it in the css
+
+2.**import** just put it in the css

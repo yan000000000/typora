@@ -1,0 +1,87 @@
+# lesson 3 color
+
+---
+
+
+
+### ways to set color
+
+##### use color name
+
+```css
+color:papayawhip;
+```
+
+
+
+##### rgb
+
+```css
+color:rgb(255,0,0);
+```
+
+*   three number round from 0-255 is red green blue
+
+
+
+##### hexadecimal 
+
+```css
+color: #000000; black #FFFFFF; white
+```
+
+*   0-9 A-F 
+*   2 digit stands for a color, first 2 for red, middle 2 for green, last 2 for blue;
+*   you can have short hand for pair e.g. #FF00FF = #F0F 
+
+### background color
+
+```css
+body {
+  background-color: papayawhip;
+  color: darkblue;
+}
+```
+
+color for the font color
+
+*   140 color names available
+
+*   readable e.g. papayawhip
+
+
+
+### rgba
+
+`a` stands for alpha channel
+
+`a` --> transparent 0-1
+
+```css
+color: rgba(0,0,0,0.5)
+```
+
+![image-20231130095347861](.assets/image-20231130095347861.png)
+
+
+
+### hsl
+
+hsl stands for hue saturation lightness
+
+h is round from 0-360 a circle
+
+s is round from 0-100%, 0 --> gray 100% --> pure
+
+l is round from 0 - 100% 100 --> white 0 --> black
+
+
+
+### web for checking the contrast of the color
+
+*   [coolers](https://coolors.co/)
+
+give a point to the contrast 
+
+
+

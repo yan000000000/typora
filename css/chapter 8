@@ -1,0 +1,71 @@
+# lesson 8 list style
+
+---
+
+
+
+### order list
+
+```css
+ol {
+  list-style-type: lower-alpha;
+  padding: 2px;
+}
+```
+
+set the symbol in front of the list
+
+
+
+#### example
+
+circle, decimal-leading-zero, lower alpha, upper-roman
+
+
+
+### unorder list
+
+```css
+ul {
+  list-style-type: square;
+  color: blue; change all the text and disc
+  line-height: 1.6;
+  list-style-image: url('../images/checkmark.png');use image as bullet point
+}
+```
+
+
+
+### some more
+
+```css
+ul li:nth-child(odd) {
+  color: red;
+}
+```
+
+only the odd of the li turn red
+
+#### put marker into alignment
+
+```css
+ul {
+  list-style-position: inside; vary for different browser
+}
+```
+
+
+
+### marker
+
+```css
+::marker {
+  color: red;
+  font-family: fantasy;
+  font-size: 1.5em;
+  content:"Only $5 >>"
+}
+```
+
+directly edit the colon or marker
+

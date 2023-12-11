@@ -1,0 +1,80 @@
+# lesson 4 unit & size
+
+---
+
+
+
+### absolute length unit
+
+*   pixel
+
+
+
+### set size
+
+*   usually default web font size is 16px
+
+*   usually don't set absolutely pixel number, unchangable for the browser
+
+
+
+#### <u>rem</u>
+
+*stands for root em, 1rem is equal to the font size of the root element*
+
+```css
+p {
+  font-size: 1rem;
+}
+```
+
+easier to suit every user
+
+
+
+#### em
+
+normally used in padding or margin
+
+```css
+main{
+  font-size: 2rem;
+  
+}
+
+p {
+  font-size: 2em;
+}
+```
+
+if we set the font-size to em, rem would look at the root element, which is 32px and the em would look at the parent element, so it would be 64px.
+
+### percentage
+
+```css
+header {
+  width: 50%;
+}
+```
+
+the default width of that row is 50% of the page
+
+
+
+### usual unit
+
+| Unit | Relative to                                                  |
+| ---- | ------------------------------------------------------------ |
+| em   | Font size of the parent                                      |
+| ex   | x-height of the element's font                               |
+| ch   | the advance measure(width) of the glyph "0" of the element's font |
+| rem  | font size of the root element                                |
+| lh   | ling height of the element                                   |
+| vw   | 1% of the viewport's width                                   |
+| vh   | 1% of the viewport's height                                  |
+| vmin | 1% of the viewport's smaller dimension                       |
+| vmax | 1% of the viewport's larger dimension                        |
+
+>   compare to vw, percentage might be a better choice
+>
+>   when you have a long paragraph, using vw may lead to a button scroll bar which is not good

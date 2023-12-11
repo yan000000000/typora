@@ -1,0 +1,136 @@
+# lesson 5 box model
+
+---
+
+
+
+### reset
+
+```css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+```
+
+browser has a default em and it change due to the rem you set, it is hard to control
+
+`box-sizing: border-box` set to make the calculation easier
+
+it calculate the whole box compare with `content-box` just calculate the content size
+
+ 
+
+### basic box
+
+![image-20231130122551207](.assets/image-20231130122551207.png)
+
+#### margin
+
+*the outside space of the box*
+
+
+
+#### border 
+
+*the outline of the box*
+
+
+
+#### padding
+
+*the space inside the box between the border and the content*
+
+
+
+### margin
+
+```css
+margin: 1.5em;
+or
+margin-top:1.5em;
+margin-left:1.5em;
+margin-right:1.5em;
+margin-bottom:1.5em;
+or
+margin: 1.5em 2em 2em;
+/*in this case, the second number indicate left and right*/
+or
+margin: 1.5em 2em 2em 4em;
+/*in top right bottom left*/
+
+or
+margin: 3rem auto; center it horizontally
+```
+
+
+
+### padding
+
+same with margin 
+
+```css
+padding: 1.5em;
+or
+padding-top:1.5em;
+padding-left:1.5em;
+padding-right:1.5em;
+padding-bottom:1.5em;
+or
+padding: 1.5em 2em 2em;
+/*in this case, the second number indicate left and right*/
+or
+padding: 1.5em 2em 2em 4em;
+/*in top right bottom left*/
+```
+
+
+
+### border
+
+same
+
+```css
+border: dashed 1.5em red;
+or
+border-top: 5px solid green;
+border-left: 10px dotted black;
+border-right:1.5em;
+border-bottom:1.5em;
+or
+border: 1.5em 2em 2em;
+/*in this case, the second number indicate left and right*/
+or
+border: 1.5em 2em 2em 4em;
+/*in top right bottom left*/
+
+more specific
+border-top-width: 5px;
+border-top-style: dotted; 
+border-top-color: blue;
+
+border-radius: 50px; make a round angle not only for a circle
+```
+
+*   style
+
+double, dotted, ridge, solid, outset
+
+
+
+### outline
+
+```css
+outline: 5px solid purple;
+outline-offset: -20px; to move it 
+```
+
+
+
+
+
+
+
+
+
