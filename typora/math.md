@@ -182,35 +182,36 @@
 
 #### operation
 
-| render        | markdown       |
-| ------------- | -------------- |
-| $\pm$         | $\pm\$         |
-| $\times$      | $\times\$      |
-| $\div$        | $\div\$        |
-| $\neq$        | $\neq\$        |
-| $\equiv$      | $\equiv\$      |
-| $\leq$        | $\leq\$        |
-| $\geq$        | $\geq\$        |
-| $\approx$     | $\approx\$     |
-| $\in$         | $\in\$         |
-| $\notin$      | $\notin\$      |
-| $\subset$     | $\subset\$     |
-| $\supset$     | $\supset\$     |
-| $\not\subset$ | $\not\subset\$ |
-| $\not\supset$ | $\not\supset\$ |
-| $\subseteq$   | $\subseteq\$   |
-| $\supseteq$   | $\supseteq\$   |
-| $\subsetneq$  | $\subsetneq\$  |
-| $\supsetneq$  | $\supsetneq\$  |
-| $\cap$        | $\cap\$        |
-| $\cup$        | $\cup\$        |
-| $\setminus$   | $\setminus\$   |
-| $\ll$         | $\ll\$         |
-| $\gg$         | $\gg\$         |
-| $\lll$        | $\lll$         |
-| $\ggg$        | $\ggg$         |
-| $<$           | $<\$           |
-| $>$           | $>\$           |
+| render         | markdown        |
+| -------------- | --------------- |
+| $\pm$          | $\pm\$          |
+| $\times$       | $\times\$       |
+| $\div$         | $\div\$         |
+| $\neq$         | $\neq\$         |
+| $\equiv$       | $\equiv\$       |
+| $\leq$         | $\leq\$         |
+| $\geq$         | $\geq\$         |
+| $\approx$      | $\approx\$      |
+| $\in$          | $\in\$          |
+| $\notin$       | $\notin\$       |
+| $\subset$      | $\subset\$      |
+| $\supset$      | $\supset\$      |
+| $\not\subset$  | $\not\subset\$  |
+| $\not\supset$  | $\not\supset\$  |
+| $\subseteq$    | $\subseteq\$    |
+| $\supseteq$    | $\supseteq\$    |
+| $\subsetneq$   | $\subsetneq\$   |
+| $\supsetneq$   | $\supsetneq\$   |
+| $\cap$         | $\cap\$         |
+| $\cup$         | $\cup\$         |
+| $\setminus$    | $\setminus\$    |
+| $\overline{a}$ | $\overline{a}\$ |
+| $\ll$          | $\ll\$          |
+| $\gg$          | $\gg\$          |
+| $\lll$         | $\lll$          |
+| $\ggg$         | $\ggg$          |
+| $<$            | $<\$            |
+| $>$            | $>\$            |
 
 #### common numberset
 
@@ -241,12 +242,12 @@
 
 #### space
 
-| render   | effect       | markdown  |
-| -------- | ------------ | --------- |
-| $x \ y$  | big space    | $x \ y\$  |
-| $x \: y$ | medium space | $x \: y\$ |
-| $x \, y$ | little space | $x \, y\$ |
-| $x \! y$ | no space     | $x \! y\$ |
+| render   | effect       | markdown   |
+| -------- | ------------ | ---------- |
+| $x \ y$  | big space    | $x \ y\$   |
+| $x \: y$ | medium space | $x \\: y\$ |
+| $x \, y$ | little space | $x \, y\$  |
+| $x \! y$ | no space     | $x \! y\$  |
 
 
 
