@@ -22,6 +22,17 @@ git push -u origin main
 git push --all
 ```
 
+### second and eternal
+
+```c++
+git remote set-url origin https://github.com/yan000000000/typora.git // only if you change a repo, change the current named origin remote address into the new repo
+git remote add <name> <address> // add a new remote with other repo
+git remote -v // really important! to check how many remote and its respective address
+git branch -M main // used to rename the default branch from master to main
+git push -u origin main // push the main branch through the origin remote to github
+
+```
+
 
 
 ### update repo
