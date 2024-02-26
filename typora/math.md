@@ -43,7 +43,7 @@
 
 | render | markdown |
 | ------ | -------- |
-| $|x|$  | $|x|\$   |
+| $|x|$  | $|x|\$ |
 
 
 
@@ -51,7 +51,7 @@
 
 | render        | markdown        |
 | ------------- | --------------- |
-| 1/2           | $1/2$           |
+| 1/2           | $1/2\$          |
 | $\frac{1}{2}$ | \$\frac{1}{2}\$ |
 
 
@@ -93,11 +93,11 @@
 
 #### limit
 
-| render                         | markdown                        |
-| ------------------------------ | ------------------------------- |
-| $\lim{a+b}$                    | $\lim{a+b}\$                    |
-| $\lim{n \rightarrow + \infty}$ | $\lim{n \rightarrow + \infty}\$ |
-| $\lim{n \rightarrow -\infty}$  | $\lim{n \rightarrow -\infty}\$  |
+| render                          | markdown                        |
+| ------------------------------- | ------------------------------- |
+| $\lim{a+b}$                     | $\lim{a+b}\$                    |
+| $\lim_{n \rightarrow + \infty}$ | $\lim{n \rightarrow + \infty}\$ |
+| $\lim_{n \rightarrow -\infty}$  | $\lim{n \rightarrow -\infty}\$  |
 
 
 
@@ -161,11 +161,11 @@
 
 #### trigonometric function
 
-| render           | markdown          |
-| ---------------- | ----------------- |
-| $\sin$           | $\sin\$           |
-| $\arcsin(a + b)$ | $\arcsin(a + b)\$ |
-| $\tan{\theta_1}$ | $tan{\theta_1}\$  |
+| render           | markdown         |
+| ---------------- | ---------------- |
+| $\sin$           | $\sin\$          |
+| $\arcsin(a+b)$   | $\arcsin(a+ b)\$ |
+| $\tan{\theta_1}$ | $tan{\theta_1}\$ |
 
 
 
@@ -295,3 +295,4 @@ a = \left[
 }
 \right]
 $$
+
