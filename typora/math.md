@@ -194,6 +194,7 @@
 | $\approx$      | $\approx\$      |
 | $\in$          | $\in\$          |
 | $\notin$       | $\notin\$       |
+| $\emptyset$    | $\emptyset\$    |
 | $\subset$      | $\subset\$      |
 | $\supset$      | $\supset\$      |
 | $\not\subset$  | $\not\subset\$  |
