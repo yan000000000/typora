@@ -326,4 +326,19 @@ $$
 
 ### Definition
 
-Event $A$ and event $B$ are independent $$
+Event $A$ and event $B$ are independent when $B$ provides no information of $A$ 
+$$
+P(A|B) = P(A)
+$$
+Equivalently, we have
+$$
+P(A\cap B) = P(A)P(B) \\
+$$
+proof: by definition we have $P(A|B) =\frac{P(A\cap B)}{P(B)} $
+
+we have  $P(A|B) = P(A)$  , then multiply the demoninator with the other side, we have the formula
+
+### Notice
+
+> $A\cap B = \empty \neq$ independent
+

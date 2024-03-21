@@ -235,3 +235,149 @@ $$
 \vec{v}_{PA} = \vec{v}_{PB}+\vec{v}_{BA}
 $$
 
+## 13.Gravatation
+
+### Newton's Law of gravitation
+
+Gravitation is the tendency for bodies to attract each other
+
+
+
+the magnitude of the force is given by
+$$
+F = \frac{Gm_1m_2}{r^2}
+$$
+Where $G$ is the gravitational constant(万有引力常量)
+$$
+G = 6.67*10^{-11}N\cdot m^2/kg^2
+$$
+
+### The shell theorem
+
+#### calculate as the center point
+
+This part of the theorem implies that when calculating the gravitational force exerted on an object outside a spherical shell of mass (assuming the shell has uniform density), you can treat the entire mass of the shell as if it were concentrated at a single point at the shell's center. This simplifies calculations involving the gravitational forces of spherical bodies, such as planets and stars, making it easier to predict the motion of objects in their gravitational field.
+
+* a uniform shell of matter exerts no net gravitational force on a particle located inside it
+* forces between elements do not disappear, but their vector sum is 0
+
+
+
+### the Principle of superposition
+
+to calculate 
+
+#### definition
+
+the net is the sum of individual effects
+
+### Gravitation near Earth's Surface
+
+by $F = \frac{GMm}{r^2}$ and $F = ma_g$ we can get
+$$
+a_g = \frac{GM}{r^2}
+$$
+this give the magnitude of the gravitational acceleration at a given distance from the center of the Earth
+
+### Q:why $a_g$ slightly differ from g
+
+* Earth's mass is not uniformly distributed
+* Earth is not a sphere
+* Earth rotate
+
+#### example (待补充)
+
+### Gravitational Potential Energy
+
+Gravitational potential energy for a two-particle system is written
+$$
+U = -\frac{-GMm}{r}
+$$
+this value is negative and approaches 0 for $r \rightarrow \infty$ 
+
+* the gravitational potential energy of a system is the sum of potential energies for all pairs of particles
+* 
+
+### Satellite
+
+### challenge question
+
+#### 洛基极限
+
+相当于你在地球上被别的天体吸起来了
+
+## 15.Oscillation
+
+### Simple Harmonic Motion
+
+#### frequency
+
+##### definition
+
+the number of times per second that it completes a full oscillation
+
+##### unit
+
+the unit of frequency is hertz, Hz in short
+
+#### period
+
+##### definition
+
+the time in seconds for one full cycle 
+
+##### formula
+
+$$
+T = \frac{1}{f}
+$$
+
+#### Function about simple harmonic motion
+
+$$
+x(t) = x_m\cos(\omega t + \phi)
+$$
+
+*  $x_m$ stands for amplitude（振幅）
+* argument of the cosine is the phase
+*  $\phi$ stands for the phase angle
+*  $\omega$ stands for the angular frequency 
+*  $x(t)$ is the displacement at time = t
+
+$$
+\omega = \frac{2\pi}{T} = 2\pi f
+$$
+
+##### function of velocity
+
+the velocity can be found by the time derivative of the position function
+$$
+\frac{dx(t)}{dt} = v(t) = -\omega x_m\sin(\omega t+\phi)
+$$
+
+##### function of acceleration
+
+the acceleration can be found by the time derivative of the velocity function or the second derivative of postion function
+$$
+\frac{dv(t)}{dt} = a(t) = -\omega^2x_m\cos(\omega + \phi)
+$$
+we can see that the value $-\omega^2 x_m$ is the amplitude $a_m$ 
+
+and we find out that there is relation between $x(t)$ and $a(t)$ 
+$$
+a(t) = -\omega^2  x(t)
+$$
+which is similar to hookes's law 
+
+when we apply Newton's second law
+$$
+F = ma = m(-\omega^2x(t)) = -(m\omega^2)x
+$$
+
+#### Linear simple harmonic oscillation
+
+$$
+\omega = \sqrt\frac{k}{m} \ \ (angular frequency) \\
+T = 2\pi \sqrt\frac{m}{k} \ \ (period)
+$$
+
