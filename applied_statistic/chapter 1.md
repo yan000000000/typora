@@ -299,7 +299,8 @@ $$
 P(B) = P(A_1\cap B)+\cdots+P(A_n \cap B)\\
 = P(A_1)P(B|A_1) + \cdots + P(A_n)P(B|A_n)
 $$
-  $B$ is the disjoint union of $P(A_1\cap B),\cdots,P(A_n\cap B)$
+  $B$ is the disjoint union of $P(A_1\cap B),\cdots,P(A_n\cap B)$​​
+
 
 ### Bayes' Rule
 
@@ -307,20 +308,41 @@ $$
 
 Let $A_1,A_2,\cdots,A_n$ be disjoint events that form a partition of the sample space, and assume that $P(A_i)>0$ for all $i$ 
 
-Then for any event $B$ with $P(B)>0$, we have 
+Then for any event $B$ with $P(B)>0$​, we have 
+$$
+P(A_i|B)=\frac{P(A_i\cap B)}{P(B)}\\
+$$
+
+##### Proof
+
 $$
 P(A_i|B)=\frac{P(A_i\cap B)}{P(B)}\\
 =\frac{P(A_i)P(B|A_i)}{P(B)}\\
 =\frac{P(A_i)P(B|A_i)}{P(A_1)P(B|A_1)+\cdots+P(A_n)P(B|A_n)}
 $$
 
+while the process in the third line adapting the total probability theorem, mention that the $P(B)$ should be converted into $P(A_1)P(B|A_1)$ instead of $P(B)P(A_1|B)$ because $P(B)$ are what we are looking for. If $P(B)$​ is given, no need to use total probability theorem.
+
+
 #### Inference using Bayes' rule
 
-* Bayes rule is often used for inference
-* there are a number of causes that may result in a certain effect
+Baye
 
-* we wish to infer the cause
-* 
+s rule is often used for inference
+
+* there are a number of causes that may result in a certain effect and we wish to infer the cause
+
+Causes: $A_1$,$\cdots$, $A_n$
+
+Effects: event $B$ 
+
+ $P(B|A_i)$ = suppose known
+
+ $P(A_i|B)$ = posterior probability
+
+ $P(A_i)$ = prior probability
+
+<img src="assets/IMG_7FA6DE67EF21-1.jpeg" alt="IMG_7FA6DE67EF21-1" style="zoom:50%;" />
 
 ## Independent
 
@@ -338,7 +360,129 @@ proof: by definition we have $P(A|B) =\frac{P(A\cap B)}{P(B)} $
 
 we have  $P(A|B) = P(A)$  , then multiply the demoninator with the other side, we have the formula
 
-### Notice
+#### Notice
 
-> $A\cap B = \empty \neq$ independent
+> $A\cap B = \empty$(disjoint) $\neq$ independent
+
+if $P(A\cap B) = 0$ , then we have $P(A)P(B) \neq P(A\cap B) = 0$ 
+
+Therefore they are not independent
+
+### Conditional independence
+
+Given an event $C$, the events $A$ and $B$ are conditional independent if
+$$
+P(A\cap B|C) = P(A|C)\cdot P(B|C)
+$$
+or equivalently we have
+$$
+P(A|B\cap C) = P(A|C)
+$$
+
+#### proof of equivalence
+
+ $P(A\cap B | C) = \frac{P(A\cap B\cap C)}{P(C)} = \frac{P(C)P(B|C)P(A|B\cap C)}{P(C)} = P(B|C)P(A|B\cap C)$​  
+
+using the multiplication rule
+
+### Independence of many events
+
+we say that the events $A_1$,$A_2$, $\cdots$, $A_n$ are independn=ent if for every subset $S$ of ${1,2,\cdots, n}$ 
+$$
+P(\cap_{i\in S} = \Pi_{i\in S}P(A_ii))
+$$
+note, pairwise independence does not imply independence
+
+## Counting
+
+### Definition
+
+The calculation of probabilities often involves counting the number of outcomes in various events
+
+* when it is uniform distribution over finite sample space
+
+$$
+P(A) = \frac{|A|}{|\Omega|}
+$$
+
+* when an event $A$ with a finite number of equally likely outcomes, each of which has probability $p$
+$$
+P(A) = p\cdot |A|
+$$
+
+### Combinatorics(组合)
+
+The art of counting constitutes a large portion of the field of combinatorics
+
+#### 2 stage
+
+Consider an experiment that consists of 2 consecutive stages
+
+* the possible results at the first stage are $a_1,a_2,\cdots,a_m$ 
+
+* the possible results at the second stage are $b_1,b_2,\cdots,b_n$ 
+
+then the possible results of the 2-stage experiment are all possible ordered pairs $(a_i,b_j)$ where $i = 1,\cdots,m$ and $j = 1,\cdots,n$
+
+the number of such ordered pairs: mn
+
+#### Multiple stages
+
+extend the conclusion into multiple stages, suppose there are r stages 
+
+* there are $n_1$ possible results at the first stage
+* for every possible result at the first stage, there are $n_2$ possible result at the second stage.
+* General case: for every possible result at the $i - 1$ stage, there are $n_i$ possible result at the $i$ th stage
+
+the total number of possible result of the r-th stage process is $n_1n_2\cdots n_r$ 
+
+
+
+### K-permutation(排列)
+
+we start with $n$ distinct objects, and let $k$ be some positive integer, with $k \leq n$ 
+
+we wish to count the number of different ways that we can pick $k$ out of these $n$ objects and arrange them in a sequence
+
+or to sum up the number of distinct k-object sequence
+
+#### formula
+
+1. We can choose any of the $n$ object to be the first one
+
+2. having chosen the first, there are only $n-1$ possible choices for the second.
+3. Given the choice of first 2, there only remain $n-2$ available objects for the third stage.
+4. when we are ready to select the last(the k th) object, we have already chosen $k-1$ objects, which leaves us with $n-(k-1)$ choices for the last one.
+
+the number of possible sequences, called k-permutations, is
+$$
+n(n-1)\cdots (n-k+1) = \frac{n!}{(n-k)!}
+$$
+In the case of $k = n$, the number of possible sequences, **called permutations**, is
+$$
+n(n-1)\cdots(n-k+1) = n!
+$$
+Notice 0! = 1 in convention
+
+### Combination
+
+#### intro
+
+##### Question:
+
+when we are facing the problem of diving $n$ people into a group of $k$​, how many groups are there?
+
+##### Solution
+
+We find that in a combination, there is no ordering for selected elements, so the sample group with different order would be considered as only one possible results
+
+In general each combination is associated with $k!$ duplicate k-permutations, so the number $\frac{n!}{(n-k)!}$ of k-permutations = the number of combinations times $k!$ 
+
+Hence, the nubmer of possible combination is equal to 
+$$
+\frac{n!}{k!(n-k)!}
+$$
+This is same as the binomial coefficient $(_k^n)$ 跟大陆的表示方式相反
+
+
 
