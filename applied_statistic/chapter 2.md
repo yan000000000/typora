@@ -1,4 +1,4 @@
-## Basic concepts
+## 1. Basic concepts
 
 ### random variable
 
@@ -62,7 +62,7 @@ $sign(a) = \begin{cases}1, a > 0 \\ 0, a = 0 \\ -1, a < 0  \end{cases}$​
 
 Later on next chapter
 
-## Probability mass function
+## 2. Probability mass function
 
 ### Probability mass function
 
@@ -207,7 +207,7 @@ $$
 * for $\lambda \leq 1$, it is monotonically decreasing
 * for $\lambda > 1$ first increases and then decrease
 
-## Functions of random variable
+## 3. Functions of random variable
 
 ### Functions of random variable
 
@@ -218,7 +218,7 @@ $$
 p_Y(y) = \sum_{x:g(x) = y}^{}p_X(x)
 $$
 
-## Expectation,mean,and variance
+## 4. Expectation,mean,and variance
 
 ### Expectation
 
@@ -342,7 +342,7 @@ $$
 \sigma_X = \sqrt{var(X)}
 $$
 
-## Joint PMFs of multiple random variables
+## 5. Joint PMFs of multiple random variables
 
 ### Joint PMFs
 
@@ -380,7 +380,7 @@ $$
 
 meaning to get $P_X(x)$ we have to go through all the value of y, similar for $p_Y(y)$ 
 
-*  $p_X,p_Y$ are the **marginal PMFs**
+*  $p_X,p_Y$ are called the **marginal PMFs**
 
 ##### verification
 
@@ -409,6 +409,14 @@ $$
 E[g(X,Y)] = \sum_{x,y}^{}g(x,y)P_{X,Y}(x,y)
 $$
 
+##### Linear case
+
+For special case, if g is linear and of the form of $aX + bY + c$ , we have
+$$
+E[aX+bY+c] = aE[X]+bE[Y]+c
+$$
+"linearity of expectation"--regardless of dependence of $X$ and $Y$
+
 ### More than two random variable
 
 We can also consider 3 or more random variable
@@ -434,14 +442,22 @@ $$
 E[g(X,Y,Z)] = \sum_{x,y,z}^{}g(x,y,z)p_{X,Y,Z}(x,y,z)
 $$
 
+Same with 2 random variable, if $g$ is linear and of form $g(X,Y,Z) = aX + bY + cZ + d$, then we have
+$$
+E[aX+bY+cZ+d] = aE[X]+bE[Y]+cE[Z]+d
+$$
+
+
 #### Generalization
 
 For any random variables $X_1,X_2,\cdots,X_n$ and any scalars $a_1,a_2,\cdots,a_n$, wehave 
 $$
-E[a_1X_1+a_2X_2+\cdots+a_nX_n] = a_1E[X_1]+a_2e[X_2]+\cdots + a_nE[x_n]
+E[a_1X_1+a_2X_2+\cdots+a_nX_n] = a_1E[X_1]+a_2E[X_2]+\cdots + a_nE[x_n]
 $$
 
-## Conditioning
+
+
+## 6. Conditioning
 
 ### review
 
@@ -449,13 +465,17 @@ $$
 * Conditional probability are like ordinary probabilities(satisfy the three axioms)
 * it refer to a new universe: an event A which is known to have occurred
 
-### Conditioning a random variable
+
+
+### Conditioning a random variable on an event
 
 The conditional PMF of a random variable $X$ conditioned on a particular event $A$ with $P(A)> 0$ is defined by
 $$
 p_{X|A}(x) = p(X = x|A) \\
 = \frac{P(\{X = x\}\cap A)}{P(A)}
 $$
+
+#### proof of available
 
 * Consider the events $\{X=x\}\cap A$
   * they are disjoint for different values of $x$
@@ -481,7 +501,7 @@ The knowledge is captured by the conditional PMF $p_{X|Y}$ of $X$ given $Y$
 $$
 p_{X|Y}(x|y) = P(X = x|Y = y)
 $$
- 
+
 
 by the definition of conditional probabilities, we have
 $$
@@ -498,6 +518,8 @@ where $p_{X,Y}(x,y)$ is the joint PMF of $x$ and $y$, and $p_{Y}(y)$ is the marg
 
 #### calculation technique
 
+##### for joint PMF
+
 * it is convenient to calculate the joint PMF by the conditional PMF
 
 $$
@@ -508,3 +530,363 @@ or its counter part
 $$
 p_{X,Y}(x,y) = p_X(x)p_{Y|X}(y|x)
 $$
+
+##### for marginal PMF
+
+the conditional PMF can also be used to calculate the marginal PMFs
+$$
+p_X(x) = \sum_{y}^{}p_{X,Y}(x,y) = \sum_{y}^{}p_Y(y)p_{X|Y}(x|y)
+$$
+this method provides a divide and conquer method for calculating marginal PMFs
+
+### Conditional expectation
+
+#### Conditional expectation for one r.v. on event A
+
+The conditional expectation of $X$ given an event $A$ with $P(A)> 0$, is defined by
+$$
+E[X|A] = \sum_{x}^{} xp_{X|A}(x|A)
+$$
+For a function $g(X)$, it is given by
+$$
+E[g(X)|A] = \sum_{x}^{}g(x)p_{X|A}(x|A)
+$$
+
+#### Conditional expectation for one r.v. on another r.v.
+
+The conditional expectation of $X$ given a value $y$ of $Y$ is defined by
+$$
+E[X|Y = y] = \sum_{x}^{}xp_{X|Y}(x|y)
+$$
+The **total expectation theorem**
+$$
+E[X] = \sum_{x}^{}p_Y(y)E[X|Y = y]
+$$
+Hint: can be proved using formula 39
+
+#### total expectation theorem for one r.v. on event A
+
+Let $A_1,\cdots,A_n$ be disjoint events that form a partition of the sample space, and assume that $P(A_i)> 0$ for all $i$ Then, we have
+$$
+E[X] = \sum_{i = 1}^{n}p(A_i)E[X|A_i]
+$$
+
+##### proof
+
+$$
+E[X] = \sum_{x}^{}xp_X(x) \\
+= \sum_{x}^{}x\sum_{i = 1}^{n }p(A_i)p_{X|A_i}(x|A_i)\\
+= \sum_{i = 1}^{n}p(A_i)\sum_{x}^{}xp_{X|A_i}(x|A_i)\\
+ = \sum_{i = 1}^{n}p(A_i)E[X|A_i]
+$$
+
+### Mean and Variance of the Geometric r.v.
+
+ $X$ is a geometric r.v. with PMF,
+$$
+p_x(k) =(1-p)^{k-1}p  \ \ \ k = 1,2,\cdots
+$$
+
+#### mean
+
+$$
+E[x] = \sum_{k = 1}^{\infty}k(1-p)^{k-1}p
+$$
+
+#### variance
+
+$$
+var(x) = \sum_{k = 1}^{\infty}(k - E[X])^2(1-p)^{k-1}p
+$$
+
+#### calculation of $E[X]$
+
+It is tedious to calculate them one by one, so we apply the total expectation theorem
+
+##### Proof
+
+we consider the first situation with random variable $Y$. The probabilities of first try is successful is $p$ and the probabilities of first try failed is $(1-p)$, which include $Y_1 = \{X = 1\} $ with $P_1 = p$ and $Y_2 = \{X > 1\}$​ with $P_2 = 1-p$  
+
+According to total expectation theorem, we have 
+$$
+E[X] = \sum_{x}^{}p_Y(y)E[X|Y = y]
+$$
+therefore we have 
+$$
+E[X] = p_Y(y_1)E[X = 1|Y = 1] + p_Y(y_2)E[X > 1|Y = 2]
+$$
+so our goal is to compute $E[X > 1|Y = 2]$
+
+###### Method 1
+
+$$
+E[X>1|Y = 2] = \sum_{x = 2}^{\infty}xp_{X|Y}(x)\\
+=\sum_{x= 2}^{\infty}x(1-p)^{x-2}p\\
+=\sum_{x = 1}^{\infty}(x+1)(1-p)^{x - 1}p\\
+=E[X+1]\\
+=E[X]+1
+$$
+
+###### method 2
+
+For r.v. $X$, we have $X = 1, 2,\cdots,\infty$, we let r.v. $Y = 2,3,\cdots,\infty $​ 
+
+then we have $E[Y] = E[X+1] = E[X]+ 1$ 
+
+##### back to our proof
+
+Substitute $E[X>1|Y = 2] = E[X]+ 1$ to the formula(51), we have 
+$$
+E[X] = p_Y(y_1)E[X = 1|Y = 1] + p_Y(y_2)E[X > 1|Y = 2] \\
+= p * 1 + (1-p)(E[X]+1)\\
+=p+E[X]+1-pE[X]-p
+$$
+Finally, we have
+$$
+E[X] = \frac{1}{p} 
+$$
+
+##### for $E[X^2]$​
+
+Similarly, we have 
+$$
+E[X^2|X = 1] = 1 \\
+$$
+
+$$
+E[X^2|X > 1] = E[(1+X)^2]\\
+= 1+2E[X]+E[X^2]
+$$
+
+so
+$$
+E[X^2] = p + (1-p)(1+2E[X]+E[X^2])\\
+=p+1+2E[X]+E[X^2]-p-2pE[X]-pE[X^2]\\
+$$
+so 
+$$
+E[X^2] = \frac{2}{p^2}-\frac{1}{p}
+$$
+
+#### calculation for $var(X)$
+
+from the above calculation, we can conclude that
+$$
+var(X) = E[X^2] - (E[X])^2\\
+=\frac{2}{p^2} - \frac{1}{p} - \frac{1}{p^2}\\
+=\frac{1}{p^2}-\frac{1}{p}
+$$
+
+## 7. Independence
+
+### Review
+
+#### Definition
+
+Knowing the occurrence of the conditioning event tells us nothing about the value of the random variable
+$$
+P(A\cap B) = P(A)\cdot P(B)
+$$
+
+### Independence of r.v. from an event
+
+#### Definition
+
+Formally, the r.v. $X$ is independent of the event $A$ if
+$$
+P(X=x  \ and \ A) = P(X =x)P(A) = p_X(x)P(A)
+$$
+for any choice of $x$
+
+or equivalently, requiring that the events $\{X =x\}$ and $A$ are independent, for any choice $x$
+
+#### Formula
+
+consider $P(A) > 0$, by the definition of the conditional PMF we have
+$$
+p_{X|A} = \frac{P(X = x \ and \ A)}{P(A)}
+$$
+given that we have $X$ is independent of the event $A$, we have
+$$
+P(X = x \ and \ A) = P(X = x)\cap P(A)
+$$
+substitute it into the original formula, we have
+$$
+p_{X|A} = \frac{P(X = x)P(A)}{P(A)} = P(X = x) = p_X(x)
+$$
+
+###  Independence of r.v. from another r.v.
+
+#### Definition
+
+Similar to the independence of r.v. from an event, we have 2 r.v. $X$ and $Y$ are independent if
+$$
+p_{X,Y}(x,y) = p_X(x)\cdot p_Y(y) \ \ for \ \ all \ x,y
+$$
+or in other word, it requires that the 2 events $\{X=x\}$ and $\{Y=y\}$ is independent for every $x$ and $y$​
+
+#### Formula
+
+By the formula (65), we have 
+$$
+p_{X|Y}(x|y) = p_X(x)
+$$
+
+##### Proof
+
+$$
+p_{X|Y}(x|y) = \frac{p_{X,Y}(x,y)}{p_Y(y)}\\
+=\frac{p_X(x)p_Y(y)}{p_Y(y)}\\
+=p_X(x)
+$$
+
+### Conditionally independent
+
+#### Definition
+
+ $X$ and $Y$ are conditionally independent if given a positive probability event $A$ 
+$$
+P(X=x,Y=y|A) =P(X = x|A)P(Y=y|A)
+$$
+or in another notation
+$$
+p_{X,Y|A}(x,y) = p_{X|A}(x)p_{Y|A}(y)
+$$
+or equivalently
+$$
+p_{X|Y,A}(x,y) = p_{X|A}(x)
+$$
+for all $x,y$ such that $p_{y|A}(y) > 0$​
+
+#### notice
+
+notice that conditional independence may not imply unconditional independence
+
+### Mean of independent
+
+#### formula
+
+If $X$ and $Y$ are independent r.v. then
+$$
+E[XY] = E[X]\cdot E[Y]
+$$
+
+#### proof
+
+$$
+E[XY] = E[X]\cdot E[Y]\\
+=\sum_{x}^{}\sum_{y}^{}xy\cdot p_{X,Y}(x,y)\\
+=\sum_{x}^{}\sum_{y}^{}xy\cdot p_X(x)p_Y(y)\\
+=\sum_{x}^{}xp_X(x)\sum_{y}^{}yp_Y(y)\\
+=E[X]\cdot E[Y]
+$$
+
+#### more
+
+By similar calculation, if $X$ and $Y$ are independent, then so are $g(X)$ and $h(Y)$ for any functions $g$ and $h$
+$$
+E[g(X)h(Y)]=E[g(X)]E[h(Y)]
+$$
+
+### Variance of independent
+
+#### Definition
+
+Consider $Z = X + Y$, where $X$ and $Y$ are independent, we have
+$$
+var(Z) = var(X)+ var(Y)
+$$
+
+#### proof
+
+$$
+var(Z) = E[(Z - E[Z])^2]\\
+= E[(X+Y-E[X+Y])^2]\\
+= E[(X+Y-E[X]-E[Y])^2]\\
+= E[(X-E[X]+Y-E[Y])^2]\\
+= E[((X-E[X])+(Y-E[Y]))^2]\\
+= E[(X-E[X])^2+(Y-E[Y])^2+2(X-E[X])(Y-E[Y])]\\
+= E[(X-E[X])^2]+E[(Y-E[Y])^2]+E[2(X-E[X])(Y-E[Y])]\\
+$$
+
+Given that $X$ and $Y$ are independent, from formula (71), and consider $E[X]$ and $E[Y]$ is a constant,
+$$
+2E[(X-E[X])(Y-E[Y])] = 2E[X-E[X]]E[Y-E[Y]]\\
+$$
+for $E[X - E[X]]$ , we have
+$$
+E[X -E[X]] = E[X] - E[E[X]]\\
+=E[X ] - E[X]\\
+= 0
+$$
+Therefore
+$$
+2E[(X-E[X])(Y-E[Y])] = 0
+$$
+back to formula(75), we have
+$$
+E[(X-E[X])^2]+E[(Y-E[Y])^2]+E[2(X-E[X])(Y-E[Y])]\\
+=E[(X-E[X])^2]+E[(Y-E[Y])^2]\\
+=var(X)+var(Y)
+$$
+
+### Extension
+
+All previous results have natural extensions to more than 2 r.v.
+
+* Definition
+
+$$
+p_{X,Y,Z}(x,y,z) = p_X(x)p_Y(y)p_Z(z)
+$$
+
+* variance
+
+$$
+var(X_1+X_2+\cdots+X_n) = var(X_1)+var(X_2)+ \cdots + var(X_n)
+$$
+
+### variance of binomial
+
+Let $X = X_1 + X_2 + \cdots +X_n$ be a binomial r.v.
+
+for $X_i$, where $i = 1, 2,\cdots,\infty$, we have $var(X_i) = E[X^2] - (E[X])^2 = p-p^2 = p(1-p)$
+
+By the variance extension, we have
+$$
+var(X) = \sum_{i = 1}^{n}var(X_i) = np(1-p)
+$$
+
+###  Mean and variance of the sample mean
+
+Model $X_1,X_2,\cdots,X_n$ as independent bernoulli random variables
+
+we denote mean as $p$ and variance as $p(1-p)$ 
+
+the sample mean can be represent as
+$$
+S_n = \frac{X_1+X_2+\cdots+X_n}{n}
+$$
+
+#### mean
+
+$$
+E[S_n] = \sum_{i = 1}^{n}\frac{1}{n}E[X_i] = \frac{1}{n}\sum_{i = 1}^{n}p = p
+$$
+
+#### variance
+
+$$
+var(S_n) = \sum_{i = 1}^{n}\frac{1}{n^2}var(X_i) = \frac{p(1-p)}{n}
+$$
+
+
+
+
+## Reflection
+
+### 对随机变量的新理解
+
+<img src="assets/IMG_8E85016A11AD-1.jpeg" alt="IMG_8E85016A11AD-1" style="zoom:25%;" />
+
+类似这幅图，我们的随机变量通过映射从事件本身变成了一个个事件 $\{X = a\}$ 和 $\{X = b\}$ ，最后这些事件的并集组成了样本空间。当然，这其中映射的过程，从事件到数字这个过程本身是没有体现的，在这种图上表示出来的只有最后的数字表示。那么不同的随机变量意味着什么，不同的随机变量意味着不同的画圆方式。而不同随机变量的交集组成了joint PMF，之后再看看有无新东西
