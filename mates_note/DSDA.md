@@ -226,13 +226,87 @@ z curve
 
 如何实现insert函数和delete函数
 
+#### 分析
+
+##### time complexity
+
+`Insert`
+
+* Best case: $O(1)$ 
+* Worst case: $O(n)$
+* Average case:  $\sum_{i = 0}^{n}\frac{1}{n+1}(c_{shift}(n-i)+c_{insert})$
+  * While $\frac{1}{n+1}$ 是插入任意一个位置的概率
+  *  $c_{shift}$ 是移动一个元素的成本
+  *  $c_{insert}$ 是插入操作的固定成本（如增大数列空间
+  * 计算之后大概是 $\frac{1}{2}c_{shift}n+c_{insert}$ ,时间复杂度为 $\theta(n)$​
+
+`Delete`
+
+ $O(n)$ ,similar to insert
+
+##### space complexity
+
+ $O(maxsize)$ due to copy and paste to another array
+
+###### strategy
+
+* if maxsize is too large, space will be wasted
+* if maxsize is too small, it is easy to be ran out of space
+
+###### solution
+
+* use a dynamic or growable array when there is limited insertion
+* Else use a linked list 
+
 #### 链表
 
 ##### 分类
 
-* 单向链表
-* 双向链表
-* 循环链表
+###### 单向链表
+
+* 有指向下一个的指针
+
+* e.g.
+
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def append(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            return
+        last_node = self.head
+        while last_node.next:
+            last_node = last_node.next
+        last_node.next = new_node
+
+    def print_list(self):
+        current_node = self.head
+        while current_node:
+            print(current_node.data)
+            current_node = current_node.next
+```
+
+
+
+
+
+###### 双向链表
+
+* 有分别指向下一个和前一个的指针
+
+###### 循环链表
+
+* 最后一个会指向回开头
+* 可以动态地保持空间的平衡
 
 
 
@@ -258,7 +332,7 @@ z curve
 
   
 
-- #### **前缀/后缀表达式 Pre/Postfix Evaluator**
+  #### **前缀/后缀表达式 Pre/Postfix Evaluator**
 
   后缀表达式（也称为逆波兰表示法）和前缀表达式（也称为波兰表示法）是两种不同的方式来表示和计算数学表达式，它们都不需要使用括号来指定操作符的优先级。
 
@@ -294,11 +368,12 @@ z curve
 
     
 
-- ### **摊销时间 Amortized Time**
+  ### **摊销时间 Amortized Time**
 
   指在执行一系列操作时，**每个操作的平均时间成本**。这个概念在分析那些**偶尔需要大量时间但通常很快的操作**时特别有用。摊销分析的目的是展示即使单个操作可能昂贵，整个操作序列的平均成本仍然可以保持低。
 
   - Array-based stack 基于数组实现的栈
+    - 其中增长策略的计算就用到了这个思想，到底是以常数 $c$ 的增长速度增加还是每次翻倍增加
 
 ## Queue 队列
 
