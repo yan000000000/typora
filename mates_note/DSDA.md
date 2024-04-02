@@ -455,7 +455,7 @@ class LinkedList:
 
        
 
-    ```
+    ```python
     Root node = A[1]
     Children of A[i] = A[2i], A[2i + 1]
     Parent of A[j] = A[ j // 2 ]
