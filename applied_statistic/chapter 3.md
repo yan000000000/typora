@@ -257,9 +257,78 @@ f_X(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 $$
 for some $\sigma > 0$
 
-#### verification of total probabilities
+#### Verification of total probabilities
 
 $$
 \int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x -\mu)^2}{2\sigma^2}}dx = 1
 $$
+
+### Graph
+
+<img src="assets/螢幕截圖 2024-04-06 上午10.50.04.png" alt="螢幕截圖 2024-04-06 上午10.50.04" style="zoom: 33%;" />
+
+This is the graph of a normal PDF and CDF with $\mu = 1$ and $\sigma^2 = 1$ where $\mu$ stands for the mean and $\sigma^2$ stands for the variance. 
+
+### Feature
+
+* The normal PDF is symmetric around its mean $\mu$​ 
+* as $x$ get further from $\mu$​ , the value decrease rapidly
+*  $E[X] = \mu$ and $var(X) = \sigma^2$
+
+### Mean and variance
+
+Since the graph is symmetric around mean $\mu$ so the mean $E[X] = \mu$ 
+
+for variance $var(X)$ we have $var(X) = \sigma^2$ 
+
+#### proof
+
+$$
+var(X) = \int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}\sigma}(x-\mu)^2e^{-\frac{(x-\mu)^2}{2\sigma^2}}dx\\
+take \ \ y = \frac{x-\mu}{\sigma}, \ \ dx = \sigma  \ dy\\
+=\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}\sigma}\sigma^2y^2e^{-\frac{y^2}{2}}\sigma  \ dy \\
+= \frac{\sigma^2}{\sqrt{2\pi}}\int_{-\infty}^{\infty}y^2e^{-\frac{y^2}{2}}dy\\
+=\frac{\sigma^2}{\sqrt{2\pi}}(y(-e^{-\frac{y^2}{2}})|_{-\infty}^{\infty} - (\int_{-\infty}^{\infty}-e^{-\frac{y^2}{2}})dy) \ \ integration \ \ by \ \ part\ \ taking \ \ u = y \ \ v = -e^{-\frac{y^2}{2}}\\
+= \frac{\sigma^2}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-\frac{y^2}{2}}dy\\
+=\sigma^2
+$$
+
+**having question with the last step and the first step why the variance should be calculated like that**
+
+### Standard normal
+
+#### Definition
+
+The normal r.v. with 0 mean and unit variance (which is 1) is a standard normal. Its CDF is denoted by
+$$
+\phi(y) = P(Y \leq y) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{y}e^{-\frac{t^2}{2}}dt
+$$
+by symmetry, it holds
+$$
+\phi(y) = 1 -\phi(-y)
+$$
+
+#### graph
+
+<img src="assets/image-20240406135637569.png" alt="image-20240406135637569" style="zoom:33%;" />
+
+#### Tabel of $\phi(x)$ for positive $x$
+
+<img src="assets/螢幕截圖 2024-04-06 下午1.58.33.png" alt="螢幕截圖 2024-04-06 下午1.58.33" style="zoom:33%;" />
+
+Remember: row first then column
+
+#### transform into standard normal
+
+Let $X$ be a normal r.v. with mean $\mu$ and variance $\sigma^2$ . Then we have
+$$
+Y = \frac{X - \mu}{\sigma}
+$$
+is also a normal which we can prove by
+$$
+E[Y] = E[\frac{X-\mu}{\sigma}] = \frac{E[X]-\mu}{\sigma} = 0 \\
+var(Y) = var(\frac{X-\mu}{\sigma}) = \frac{var(X)}{\sigma^2} = 1
+$$
+
+> This fact allow us to calculate any normal r.v. by redefining the r.v. $X$ in terms of $Y$, then we can use the standard normal table
 

@@ -381,3 +381,22 @@ $$
 T = 2\pi \sqrt\frac{m}{k} \ \ (period)
 $$
 
+## 17 fluid
+
+### Ideal fluid in motion
+
+#### Steady flow
+
+the velocity of the moving fluid at any fixed point doesn't change with time
+
+#### Incompressible flow
+
+The ideal fluid density has a constant uniform value
+
+#### Nonviscous flow
+
+no resistive force here, energy is conserved
+
+#### Irrotational flow
+
+object may do circular motion but themselves will not rotate
