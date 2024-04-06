@@ -17,13 +17,20 @@ $$
 \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f_{X,Y}(x,y)dxdy = 1
 $$
 
+### Visualization
+
+<img src=".assets/image-20240406223312667.png" alt="image-20240406223312667" style="zoom: 25%;" />
+
+* just like in this picture, we can see the wave on the surface is the PDF
+* by integrating the PDF 2 times, we can get the volume sit on the top of the set B which is the probabilities
+
 ### Interpretation
 
 To interpret the joint PDF, let $\delta$ be a small positive number, 
 $$
 P(a \leq X \leq a+\delta, c\leq Y\leq c+\delta) = \int_{c}^{c+\delta}\int_{a}^{a+\delta}f_{X,Y}(x,y)dxdy \approx f_{X,Y}(a,c)\delta^2
 $$
- $f_{X,Y}(a,c)$ can be interpret as **probability per unit area** in the vicinty of $(a,c)$ 
+ $f_{X,Y}(a,c)$ can be interpret as **probability per unit area** in the vicinity of $(a,c)$ 
 
 ### Marginal probability
 
@@ -51,12 +58,16 @@ $$
 f_{X,Y}(x,y) = \begin {cases}\frac{1}{area \ \ S} \ \ \ \ if (x,y)\in S \\
 0 \ \ \ \ otherwise\end {cases}
 $$
+>  $\frac{1}{area \ \ S}$ can be visually interpreted as the height of the object
+
 For any subset $A \subset S$ , the probabilities that $(X,Y) $ lies in $A$ is
 $$
 P((X,Y)\in A) = \int_{}^{}\int_{(x,y)\in A}^{}f_{X,Y}(x,y)dxdy\\
 = \frac{1}{area \ \ S}\int_{}^{}\int_{(x,y)\in A}^{}dxdy\\
 =\frac{area \ \ A}{area \ \ S}
 $$
+
+* 其中 $\int_{}^{}\int_{(x,y)\in A}^{}dxdy$ 可以理解为所有属于集合 $A$ 的点聚在一起组合成的二维图形的面积
 
 ### Joint CDFs
 

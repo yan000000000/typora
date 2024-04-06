@@ -18,6 +18,12 @@ for every subset $B \subseteq \R$ (we assume the integral is well-defined)
 
 * compare to the discrete case, we replace summation by integral
 
+> it is called density because PDF can be interpret as probability per unit area.
+>
+> PDF is only the function and the curve but the area represent the probabilities mass.
+>
+> By the way, area time density equal to mass, in this way you can know why they named it like this 细品
+
 ### Extension 
 
 #### PDF and area
@@ -294,6 +300,10 @@ take \ \ y = \frac{x-\mu}{\sigma}, \ \ dx = \sigma  \ dy\\
 $$
 
 **having question with the last step and the first step why the variance should be calculated like that**
+
+第一步中我们从方差的定义我们可以知道 $var(X) = E[(X-\mu)^2]$ ,则定义中的式子则是表示概率， $(X-\mu)^2$ 的部分则相当于 $x$ 
+
+关于最后一步 $\int_{-\infty}^{\infty}e{-\frac{y^2}{2}}dy$ 的证明好像要用到二重积分，先暂且放一放
 
 ### Standard normal
 
