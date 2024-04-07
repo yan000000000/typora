@@ -313,7 +313,7 @@ $$
 P(A_i|B)=\frac{P(A_i\cap B)}{P(B)}\\
 $$
 
-##### Proof
+##### Extension 
 
 $$
 P(A_i|B)=\frac{P(A_i\cap B)}{P(B)}\\
@@ -326,9 +326,7 @@ while the process in the third line adapting the total probability theorem, ment
 
 #### Inference using Bayes' rule
 
-Baye
-
-s rule is often used for inference
+Bayes rule is often used for inference
 
 * there are a number of causes that may result in a certain effect and we wish to infer the cause
 
