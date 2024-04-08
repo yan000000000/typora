@@ -238,5 +238,3 @@ $$
 $$
 
 * Thus $f_{X|Y}(x|y)$ is a legitimate PDF
-
-ﬁ
