@@ -28,7 +28,7 @@ $$
 
 in this step, we can view $E[X]$ in the $E[YE[X]]$ as a pre-calculated constant, same with $Y$ . So we can take it out of the me
 $$
- = E[XY] - E[Y]E[X] - E[X]E[Y]+E[X]E[Y]\\
+= E[XY] - E[Y]E[X] - E[X]E[Y]+E[X]E[Y]\\
  = E[XY] - E[X]E[Y]
 $$
 **the proof need verified**
@@ -43,7 +43,7 @@ $$
 
 * notice that vice versa(which is $cov(X,Y)$ mean 2 two r.v. is independent) is not correct
 
-* For any r.v. $X,Y,Z$ and any scalars $a$ and $b$ 
+* For any r.v. $X,Y,Z$ and any scalars $a$ and $b$ (you can have a try)
 
 $$
 cov(X,X) = var(X)
@@ -104,5 +104,44 @@ $$
 var(\sum_{i}^{}X_i) = \sum_{i}^{}var(X_i)+\sum_{i\neq j}^{}cov(X_i,X_j)
 $$
 
+#### Proof 
+
+$$
+Let \ \ \ \ \hat{X_i} = X_i - E[X]\\
+from \ \ definition \ \ var(X) = E[(X-E[X])^2]\\
+var(\sum_{i=1}^{n}X_i) = E[(\sum_{i=1}^{n}X_i - E[\sum_{i=1}^{n}X_i])^2]\\
+=E[(\sum_{i=1}^{n}(X_i - E[X_i]))^2]\\
+=E[(\sum_{i=1}^{n}\hat{X_i})^2]\\
+=E[(\hat{X_1}+\hat{X_2}+\cdots+\hat{X_n})^2]\\
+=E[\sum_{i=1}^{n}\hat{X_i}]+E[\sum_{i\neq j}^{n}\hat{X_i}\hat{X_j}]\\
+=\sum_{i=1}^{n}E[\hat{X_i}]+\sum_{i\neq j}^{n}E[\hat{X_i}\hat{X_j}]\\
+=\sum_{i = 1}^{n}var(X_i) + \sum_{i \neq j}^{n}cov(X_i,X_j)
+$$
+
+Notice that $E[(\hat{X_1}+\hat{X_2}+\cdots+\hat{X_n})^2]$ by breaking down this term, there may be coefficient in front of the product of $X_iX_j$​, use an example to demonstrate
+
+for $E[(\hat{X_1}+\hat{X_2}+\hat{X_3})^2]$, we may have 2 in front of $X_1X_2$ and etc. But that's because **covariance is symmetric, $cov(X_1,X_2)$ and $cov(X_2,X_1)$ is the same**, but the summation notation should involve both of the situation so don't worry 
+
+
+
 ## Conditional Expectation and variance revisited
 
+### Revisit the conditional expectatio of a r.v. $X$ given another r.v. $Y$
+
+#### Intro
+
+We introduced a r.v. denoted by $E[X|Y]$, that takes value $E[X|Y=y]$ when $Y$ takes the value $y$
+
+since $E[X|Y=y]$ is a function of $y$, $E[X|Y]$ is also a function of $Y$ 
+
+#### Law of iterated expectation
+
+Since $E[X|Y]$ is a r.v., it has an expectation $E[E[X|Y]]$ of its own, which can be calculated using the expected value rule
+$$
+E[E[X|Y]] = \begin{cases}\sum_{y}^{}E[X|Y=y]p(Y=y) \ \ \ \ discrete \\
+\int_{-\infty}^{\infty}E[X|Y=y]f_Y(y)dy \ \ \ \ continuous \end{cases}
+$$
+By total expectation theorem, RHS = $E[X]$, then we have
+$$
+E[E[X|Y]] = E[X]
+$$
