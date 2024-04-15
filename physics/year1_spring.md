@@ -235,6 +235,10 @@ $$
 \vec{v}_{PA} = \vec{v}_{PB}+\vec{v}_{BA}
 $$
 
+## 9.center of mass and linear momentum
+
+### Definition
+
 ## 13.Gravatation
 
 ### Newton's Law of gravitation

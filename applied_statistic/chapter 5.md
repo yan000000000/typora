@@ -159,3 +159,82 @@ We say that the sequence $Y_n$ converges to $a$ in probability, if for any $\eps
 $$
 lim_{n\rightarrow\infty}P(|Y_n-a|\geq\epsilon) = 0
 $$
+
+## The central limit theorem
+
+### Intro
+
+In the weak law of large numbers, we have sample mean which is $M_N = \frac{X_1+\cdots+X_n}{n}$ tends to converge to the true mean and it variance tends to 0
+
+Remember we are annoyed by $S_n = X_1+\cdots+X_n = nM_n$ which doesn't converge to any thing when n close to infinite large so we introduce the central limit theorem
+
+It is a process to make it useful through a series of changes to a <font color = '#e65529'>standard normal</font> distribution
+
+### Definition
+
+The CDF of $Z_n = \frac{X_1+\cdots+X_n - n\mu}{\sigma\sqrt{n}}$ converges to standard normal CDF
+$$
+\Phi(z) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{z}e^{-\frac{x^2}{2}}dx
+$$
+  in the sense that  $\lim_{n\rightarrow\infty}P(Z_n\leq z) = \Phi(z)$​ 
+
+#### Adaptation
+
+$$
+E[Z_n] = \frac{E[X_1+\cdots+X_n]-n\mu}{\sigma \sqrt{n}} = 0
+$$
+
+$$
+var(Z_n) = \frac{var(X_1+\cdots+X_n)}{(\sigma \sqrt{n})^2} = \frac{\sigma^2 n}{\sigma^2 n} = 1
+$$
+
+### Generality
+
+The central limit theorem can be adapted widely because it has no requirement on the distribution of the $X_i$ , which could be discrete, continuous or mixed
+
+Q:原文不是很理解 Besides independence , the implicit assumption that the mean and variance are finite, it place no other requirement on the distribution of the $X_i$​ 
+
+### Approximation on CLT
+
+The theorem CLT indicateds that <font color = '#e65529'>the sum of a large number of independent r.v. is approximately normal</font> it allows the calculation by referring to the normal CDF, which is equaivalent to treating $S_n$ as a n.v. with mean $n\mu$ and variance $n \sigma^2$ 
+
+## Strong law of large numbers
+
+### Definition
+
+Let $X_1,X_2,\cdots$ be a sequence of independent identically distributed r.v. with mean $\mu$ , then the sequence of sample means $M_n = \frac{X_1+X_2+\cdots+X_n}{n}$ converges to $\mu$ <font color = '#e65529'>with probability 1</font> in the sense that
+$$
+P(\lim_{n\rightarrow \infty }\frac{X_1+\cdots+X_n}{n} = \mu) = 1
+$$
+The strong law of large numbers states that<font color = '#e65529'>all of the probabilities</font> is concentrated on this subset $A$ of the sample space and equally the collection of outcomes that do <font color = '#e65529'>not</font> belong to $A$ has <font color = '#e65529'>probabilities of 0</font> 
+
+### Comparison
+
+#### Weak law
+
+The weak law states that the probability $P(|M_n-\mu|\geq \epsilon)$ of a significant deviation of $M_n$ from  $\mu$ goes to zero as $n\rightarrow \infty$ 
+
+which means that this probabilities can be positive and there may exist once in a while greater than $\mu$ 
+
+#### Strong law 
+
+ $M_n$ converges to $\mu$ with a probability of 1 
+
+> [!tip]
+
+
+
+
+
+> [!caution]
+
+> [!caution] 
+
+> [!caution]  
+
+
+
+> [!caution] 
+>
+> 
+
