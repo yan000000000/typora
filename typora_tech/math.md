@@ -213,6 +213,7 @@
 | $\ggg$         | $\ggg$          |
 | $<$            | $<\$            |
 | $>$            | $>\$            |
+| $\sim$         | \$\sim\$        |
 
 #### common numberset
 
