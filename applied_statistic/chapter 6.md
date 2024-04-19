@@ -147,5 +147,165 @@ $$
 \sum_{i=1}^{m}Y_{i}\sim\chi^2(\sum_{i=1}^{m}n_{i})
 $$
 
+#### e.g.
 
 
+
+### t-distribution
+
+#### Definition
+
+> Assume <font color = '#e65529'>$X\sim N(0,1),Y\sim \chi^{2}(n)$</font> and $X,Y$ are <font color = '#e65529'>independent</font> with each other. Then we call the random variable $T = \frac{X}{\sqrt{\frac{Y}{n}}}$ conforms to the $t$ distribution with degree of freedom $n$. We note it as $T\sim t(n)$ 
+
+
+
+The probability density of $t(n)$ distribution is
+$$
+f(t,n)=\frac{\Gamma(\frac{n+1}{2})}{\sqrt{n\pi}\Gamma(\frac{n}{2})}(1+\frac{t^{2}}{n})^{-\frac{n+1}{2}}, \ \ \ \ -\infty < t<+\infty
+$$
+
+#### Graph
+
+<img src="assets/t_distribution_comparisons.png" alt="t_distribution_comparisons" style="zoom: 50%;" />
+
+<font color = '#3e9e02'>The 'df' in the image represent degree of freedom</font>
+
+
+
+From the graph, we can conclude that as df grow greater, the shape of it becomes more similar to the standard normal
+
+### F distribution
+
+#### Definition
+
+> Assume $X\sim \chi^{2}(n_{1}),Y\sim \chi^{2}(n_{2})$ , and $X,Y$ are <font color = '#e65529'>independent</font> with each other. Then we call the random variable <font color = '#e65529'>$F=\cfrac{\cfrac{X}{n_{1}}}{\cfrac{Y}{n_{2}}}$</font> Conforms to the $F$ distribution with degree of freedom $(n_{1},n_{2})$, noted as $F\sim F(n_{1},n_{2})$ while $n_{1}$ is the first degree of freedom and $n_{2}$ is the second degree of freedom
+
+
+
+The probability density of $F(n_{1},n_{2})$ is 
+$$
+f(x;n_{1},n_{2})=\begin{cases}\cfrac{1}{B(\frac{n_{1}}{2},\frac{n_{2}}{2})}n_{1}^{\frac{n_{1}}{2}}n_{2}^{\frac{n_{2}}{2}}x^{\frac{n_{1}}{2}-1}(n_{2}+n_{1}x)^{-\frac{n_{1}+n_{2}}{2}} \ \ x>0\\
+0  \ \ \ \ \ \ \ \ x \leq 0 \end{cases}
+$$
+
+$$
+B(a,b) = \int_{0}^{1}x^{a-1}(1-x)^{b-1}dx = \cfrac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}
+$$
+
+#### graph
+
+![f14](assets/f14.png)
+
+## 6.3 Sampling distribution under the normal population
+
+### Conclusion for certain scenarios
+
+#### CONDITION 1
+
+Assume $X_{1},X_{2},\cdots,X_{n}$ are <font color = '#e65529'>simple random variables</font> coming from the normal population, $\bar{X}$ is the average value of the sample while $S^2$ is the variance of the sample, then we have
+
+##### Conclusion 1
+
+$$
+\bar{X}\sim N(\mu,\frac{\sigma^{2}}{n})
+$$
+
+###### proof
+
+$$
+E[\bar{X}]=E[\frac{1}{n}\sum_{i=1}^{n}X_{i}]=\frac{1}{n}\sum_{i=1}^{n}E[X_{i}] = \frac{1}{n}\cdot n \ \mu = \mu
+$$
+
+$$
+var(\bar{X}) = var(\frac{1}{n}\sum_{i=1}^{n}X_{i})=\frac{1}{n^2}\sum_{i=1}^{n}var(X_{i}) = \frac{1}{n^{2}}\cdot n\cdot \sigma^{2}=\frac{\sigma^{2}}{n}
+$$
+
+by **Central Limit Theorem (CLT):** The Central Limit Theorem states that the distribution of the sum (or average) of a large number of i.i.d. random variables, each with finite mean and variance, will be approximately normally distributed, regardless of the underlying distribution. In the case where the $X_{i}$'s are already normally distributed, the distribution of $\bar{X}$ will be exactly normal, not just approximately, regardless of the sample size *n*. 
+
+##### Conclusion 2
+
+$$
+\cfrac{(n-1)S^{2}}{\sigma^{2}}\sim \chi^{2}(n-1)
+$$
+
+######  proof
+
+[Click here teleport](proof1.md)
+
+##### Conclusion 3
+
+ $\bar{X}$ and $S^{{2}}$ are independent with each other
+
+##### Conclusion 4
+
+$$
+\frac{\bar{X}-\mu}{\frac{S}{\sqrt{n}}}\sim t(n-1)
+$$
+
+###### proof
+
+From conclusion 1 and conclusion 2, we have  $\bar{X}\sim N(\mu,\frac{\sigma^{2}}{n})$ and  $\cfrac{(n-1)S^{2}}{\sigma^{2}}\sim \chi^{2}(n-1)$
+
+From the definition of $t$ distribution, we have $T =\frac{X}{\sqrt{\frac{Y}{n}}}$ where  $X,Y \sim N(0,1)$ and $n$ stands for degree of freedom.
+
+First, we transform $\bar{X}$ into a standard normal. We have 
+$$
+X = \frac{\bar{X}-\mu}{\sqrt{\frac{\sigma^{2}}{n}}}
+$$
+Therefore, we have
+$$
+T = \frac{X}{\sqrt{\frac{Y}{n}}} = \frac{\frac{\bar{X}-\mu}{\sqrt{\frac{\sigma^{2}}{n}}}}{\sqrt{\frac{\frac{(n-1)S^{2}}{\sigma^{2}}}{n-1}}}\\
+=\frac{\bar{X}-\mu}{\frac{S}{\sqrt{n}}}
+$$
+
+> [!caution]
+>
+> Be careful for the n in the definition, it refers to the degree of freedom which is substituted as (n-1) in this case, so we have t(n-1) in the end.
+
+#### CONDITION 2
+
+Assume  $(X_{i},X_{{2}},\cdots,X_{n1})$ and  $(Y_1,Y_{{2}},\cdots,Y_{n2})$ are samples coming from the population $N(\mu_{1},\sigma^{2}_{{1}})$ and  $N(\mu_{{2}},\sigma^2_{{2}})$, respectively and they are <font color = '#e65529'>independent</font> from each other, while their variances of the samples are $S_{{1}}^{2},S_{{2}}^{{2}}$ 
+
+##### Conclusion 5
+
+$$
+\cfrac{\cfrac{S_{1}^{2}}{\sigma^2_{1}}}{\cfrac{S_{2}^{2}}{\sigma^{2}}} \sim F(n_{1}-1,n_{2}-1)
+$$
+
+###### proof
+
+By the definition of $F$ distribution, we have $F=\cfrac{\cfrac{X}{n_{1}}}{\cfrac{Y}{n_{2}}}$ <font color = '#e65529'>Be cautious that $n_{1},n_{2}$ is the degree of freedom</font> . Recall that from conclusion 2, we have $\cfrac{(n-1)S^{2}}{\sigma^{2}}\sim \chi^{2}(n-1)$ , substitute it into the term, we have
+$$
+\cfrac{\cfrac{X}{n_{1}}}{\cfrac{Y}{n_{2}}} = \frac{\cfrac{\cfrac{(n_{1}-1)S^{2}}{\sigma^{2}}}{n_{1}-1}}{\cfrac{\cfrac{(n_{2}-1)S^{2}}{\sigma^{2}}}{n_{2}-1}} \\
+=\frac{\cfrac{S_{1}^2}{\sigma_{1}^{2}}}{\cfrac{S_{2}^{2}}{\sigma_{2}^{2}}}\sim F(n_{1}-1,n_{2}-1)
+$$
+
+##### Conclusion 6
+
+$$
+\cfrac{(\bar{X}-\bar{Y})-(\mu_{1}-\mu_{2})}{\sqrt{\frac{\sigma^2_{1}}{n_{1}}+\frac{\sigma^{2}_{2}}{n_{2}}}} \sim N(0,1)
+$$
+
+In which $\bar{X},\bar{Y}$ are the average value of the sample
+
+###### Proof
+
+to prove this term is a standard normal, we need to prove its $E[X] = 0$ and $var(X) = 1$. Hint, you can use the conclusion proved in conclusion 1
+
+##### Conclusion 7
+
+when $\sigma^{2}_{1} = \sigma^{2}_{2}=\sigma^{2}$, we have
+$$
+\frac{(\bar{X}-\bar{Y})-(\mu_{1}-\mu_{2})}{S_{w}\sqrt{\frac{1}{n_{1}}+\frac{1}{n_{2}}}} \sim t(n_{1}+n_{2}-2)
+$$
+Where  $S_{W}^{{2}}=\frac{(n_{1}-1)S_{1}^{{2}}+(n_{2}-1)S_{2}^{2}}{n_{1}+n_{2}-2}$
+
+###### proof
+
+Given tha $\sigma^{2}$ is the same. From conclusion 6, let $U = \cfrac{(\bar{X}-\bar{Y})-(\mu_{1}-\mu_{2})}{\sigma\sqrt{\frac{1}{n_{1}}+\frac{1}{n_{2}}}}$ 
+
+Let $V = \frac{(n_{1}-1)S_{1}^{{2}}}{\sigma^{2}} + \frac{(n_{2}-1)S_{2}^{{2}}}{\sigma^2}$ from conclusion 2
+
+Using the property, we have  $V\sim\chi^{{2}}(n_{1}+n_{2}-2)$
+
+By the definition of $t$ distribution, substitute all these into the formula, you can have the answer
