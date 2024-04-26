@@ -4,17 +4,21 @@
 
 #### Definition
 
-when dealing with these numberical values, it is useful to assign probabilities to them, this is done through the notion of a random variable
+when dealing with numberical values in some <font color = '#e65529'>outcome</font> of the experiments, it is useful to assign probabilities to them, this is done through the notion of a random variable
 
 #### Main concepts
 
 * starting with a probabilistic model of an experiment
-* a random variable is a real-valued function of the outcome of the experiment
-* a function of a random variable defines another random variable
+* a random variable is a <font color = '#e65529'>real-valued</font> function of the outcome of the experiment
+* a <font color = '#e65529'>function of a random variable</font> defines another random variable
 
 #### personal understanding
 
-* Random variable is actually a function, so you can rewrite it into $f(x)$ to understand
+* Random variable is actually a function, mapping the outcome with the result, so you can rewrite it into $f(x)$​ to understand
+* 将实验结果映射成函数数值
+* 随机变量不同于代数中的变量，因为它具有一组完整的值，并且可以随机获取任何值。代数中使用的变量一次不能具有多个值
+
+* [Click to teleport](https://zhuanlan.zhihu.com/p/150295256)
 
 #### example
 
@@ -54,13 +58,19 @@ $sign(a) = \begin{cases}1, a > 0 \\ 0, a = 0 \\ -1, a < 0  \end{cases}$​
 
 #### concepts
 
-* A discrete random variable is a real-valued(range $\in R$) function of the outcome of a discrete experiment
-* A discrete random variable has an associated probability mass function(PMF) which gives the probability of each numerical value that the random variable can take
-* A function of a discrete random variable defines another discrete random variable, whose PMF can be obtained from the PMF of the original random variable（类似复合函数，可以从原函数PMF得到衍生函数的PMF，后面再看看怎么解释，
+* A discrete random variable is a <font color = '#e65529'>real-valued</font>(range $\in R$) function of the outcome of a discrete experiment
+
+* A discrete random variable has an associated <font color = '#e65529'>probability mass function</font>(PMF) which gives the probability of each numerical value that the random variable can take
+
+* A function of a discrete random variable defines another discrete random variable, whose PMF can be obtained from the PMF of the original random variable
+
+  （类似复合函数，可以从原函数PMF得到衍生函数的PMF
 
 ### Continuous random variable
 
-Later on next chapter
+Later on chapter 3
+
+[click here to teleport](chapter 3.md)
 
 ## 2. Probability mass function
 
@@ -68,17 +78,17 @@ Later on next chapter
 
 #### Definition
 
-For a discrete random variable $X$, the probability mass function(PMF) of $X$ captures the probabilities of the values that it can take
+For a discrete random variable $X$, the <font color = '#e65529'>probability mass function</font>(PMF) of $X$ captures the probabilities of the values that it can take
 
 #### Notation
 
-if $x$ is any possible value of $X$, the probability mass of $x$ , denoted $p_X(x)$, is the probability of the event $\{X = x\}$ consisting of all outcomes that give rise to a value of $X$ equal to x:
+if $x$ is any possible value of $X$, the <font color = '#e65529'>probability mass</font> of $x$ , denoted $p_X(x)$, is the probability of the event $\{X = x\}$ consisting of <font color = '#e65529'>all outcomes</font> that give rise to a value of $X$ equal to x:
 $$
 p_X(x) = P(\{X = x\})
 $$
 
-* Upper case characters to denote random variables, $X,Y,Z$ 
-* Lower case characters to denote real numbers, $ x,y,z$
+* <font color = '#e65529'>Upper case</font> characters to denote random variables, $X,Y,Z$ 
+* <font color = '#e65529'>Lower case</font> characters to denote real numbers, $ x,y,z$
 * we will write $P(X = x)$ in place of notation $P(\{X = x\})$ ,and similarly $P(X\in S)$ 
 
 ####  e.g.
@@ -92,7 +102,7 @@ $$
 p_X(x) = \begin{cases}\frac{1}{4}, \ if \ x = 0 \ or \ x = 2 \\ \frac{1}{2}, \ if \ x = 1 \\ 0 \ \ otherwise \end{cases}
 $$
 
-> remember the otherwise, that's the point
+> * remember the otherwise, that's the point
 
 #### the adaption of basic law
 
@@ -114,7 +124,7 @@ $$
 
 * for each possible value $x$ of $X$
   * collect all the possible outcomes that give rise to the event $\{X = x\}$ 
-  * add their probabilities to obtain $pX(x)$ 
+  * add their probabilities to obtain $p_{X}(x)$ 
 
 ### Important specific distribution
 
@@ -122,7 +132,7 @@ $$
 
 ##### Definition
 
-The bernoulli random variable takes the two values 1 and 0
+The <font color = '#e65529'>bernoulli random variable</font> takes the two values 1 and 0
 
 ##### PMF
 
@@ -136,8 +146,11 @@ sometimes we refer binomial random variable $X$ as $X~Bio(n,p)$ which $n$ refer 
 
 for $k = 0,1,\cdots,n$
 $$
-p_X(k) = P(X = k) = (_k^n)p^k(1-p)^{n-k}
+p_X(k) = P(X = k) = (_k^n)p^k(1-p)^{n-k}\\
+=C_{n}^{k}p^{k}(1-p)^{n-k}
 $$
+
+>  $(_{k}^{n})$ is the same as $C_{n}^{k}$
 
 ##### normalization
 
@@ -153,9 +166,9 @@ $$
 
 ##### intro scenario
 
-Independently and repeatedly toss a biased coin with probability of head $p$, where $0<p<1$
+<font color = '#e65529'>Independently</font> and <font color = '#e65529'>repeatedly</font> toss a biased coin with probability of head $p$, where $0<p<1$
 
-The $k$ is the number $X$ of tosses needed for a head to come up for the first time
+The $k$ is the number $X$ of tosses needed for a head to <font color = '#e65529'>come up for the first time</font>
 
 ##### PMF
 
@@ -177,11 +190,13 @@ While $p\sum_{k = 0}^{\infty}(1-p)^k$ are using summation of geometric progressi
 
 <img src="assets/Geometric_pmf.svg.png" alt="Geometric_pmf.svg" style="zoom:25%;" />
 
+The graph decrease as a geometric progression with parameter $1-p$
+
 #### Poisson random variable
 
 ##### Definition
 
-A poisson random variable takes nonnegative integer values
+A <font color = '#e65529'>poisson random variable</font> takes nonnegative integer values
 
 ##### PMF
 
@@ -228,16 +243,28 @@ Sometimes we are desired to summarize the values and probabilities by one number
 
 #### Definition
 
-The expectation of $X$ is a weighted average of the possible values of $X$ (Weight:probabilities)
+The <font color = '#e65529'>expectation</font> of $X$ is a <font color = '#e65529'>weighted average</font> of the possible values of $X$ (Weight: probabilities)
 
 In math, formally, we denote as
 $$
 E[X] = \sum_{}^{}xp_X(x)
 $$
 
+#### Interesting proof
+
+Consider the mean as the <font color = '#e65529'>center of gravity</font> of the PMF, we have
+$$
+\sum_{x}^{}(x-c)p_{X}(x) = 0\\
+\sum_{x}^{}xp_{X}(x) = c\sum_{x}^{}p_{X}(x)
+$$
+from the normalization, we have $\sum_{x}^{}p_{X}(x) = 1$, so we have
+$$
+c = \sum_{x}^{}xp_{X}(x)
+$$
+
 #### Mean of $aX+b$
 
-let $Y$ be a linear function of $X$, we have $Y = aX+b$
+let $Y$ be a <font color = '#e65529'>linear function</font> of $X$, we have $Y = aX+b$
 
 The mean of $Y$
 $$
@@ -246,6 +273,8 @@ $$
 using the definition of expectation and the normalization condition
 
 #### Expectation for g(X)
+
+> 还是没太看懂这个
 
 there is a simple way of computing $E[g(X)]$
 
@@ -270,7 +299,7 @@ $$
 
 #### notice
 
-the $k$th moment of $E[x]$ is $E[x^k]$, so when $k = 1$, or just say the first moment is just the mean. I think the moment here is the to the $k$th power of the variable.
+the $k$th moment of $E[x]$ is $E[x^k]$, so when $k = 1$, or just say the <font color = '#e65529'>first moment is just the mean</font>. I think the moment here is the to the $k$th power of the variable.
 
 #### Definition
 
@@ -278,7 +307,7 @@ Variance of $X$, denoted by var$(X)$ is
 $$
 var(X) = E[(X - E[X])^2]
 $$
-which is the second moment of $X - E[x]$, therefore the variance is always non-negative
+which is the <font color = '#e65529'>second moment of $X - E[x]$</font>, therefore the variance is always non-negative
 $$
 var(X) \geq 0
 $$
@@ -341,6 +370,25 @@ Standard deviation of $X$, denoted by $\sigma_X$ is
 $$
 \sigma_X = \sqrt{var(X)}
 $$
+
+### Conclusion of binomial r.v.
+
+$$
+E[X] = p \\
+E[X^{2}]= p \\
+var(X) = p - p^{2} = p(1-p)
+$$
+
+### Conclusion of poisson
+
+$$
+E[X] = \lambda \\
+var[X] = \lambda 
+$$
+
+
+
+
 
 ## 5. Joint PMFs of multiple random variables
 

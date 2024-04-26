@@ -133,7 +133,7 @@ $$
 #### Mean 
 
 $$
-E[X] = \frac{1}{n}
+E[X] = \frac{1}{\lambda}
 $$
 
 ##### proof
