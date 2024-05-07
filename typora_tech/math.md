@@ -207,6 +207,7 @@
 | $\cup$         | $\cup\$         |
 | $\setminus$    | $\setminus\$    |
 | $\overline{a}$ | $\overline{a}\$ |
+| $\tilde{a}$    | \$\tilde{a}\$   |
 | $\ll$          | $\ll\$          |
 | $\gg$          | $\gg\$          |
 | $\lll$         | $\lll$          |
@@ -234,7 +235,7 @@
 | $\forall$    | $\forall\$    |
 | $\infty$     | $\infty\$     |
 | $\emptyset$  | $\emptyset\$  |
-| $\exists$    | $\emptyset\$  |
+| $\exists$    | $\exists\$    |
 | $\nabla$     | $\nabla\$     |
 | $\bot$       | $\bot\$       |
 | $\angle$     | $\angle\$     |

@@ -92,3 +92,29 @@ d --> e[point estimates error analysis]
 
 
 
+## MAP, Point estimation, hypothesis testing
+
+### MAP
+
+#### Definition
+
+MAP denoted **Maximum A Posteriori** 
+
+Given the value $x$ of the observation, we select a value of $\theta$ , denoted $\hat{\theta}$, that <font color = '#e65529'>maximizes the posterior</font> distribution
+
+Recalled that we have $p_{\theta|x}(\theta|x)$ if $\theta$ is discrete and $f_{\Theta|x}(\theta|x)$ if $\Theta$​​ is continuous
+
+#### Notation
+
+We denoted MAP as
+
+ $\hat{\theta} = argmax \ p_{\Theta|X}(\theta|x)$, if $\Theta $ is discrete
+
+ $\hat{\theta} = argmax \ f_{\Theta|X}(\theta|x)$ if $\Theta$ is discrete 
+
+or we can denote it in a more easy way to understand
+
+ $p_{\Theta|X}(\theta|x) = max(p_{\Theta|X}(\theta|x))$
+
+ $f_{\Theta|X}(\theta|x) = max(p_{\Theta|X}(\theta|x))$
+
