@@ -1,30 +1,63 @@
+
+
+# chapter 18
+
+## Temperature
+
 ### Temperature
 
-measure temperature on Kelvin scale.
+measure temperature on <font color = '#e65529'>Kelvin scale</font>. 
 
-* Room temperature is about 290K, 0K is absolute zero
+* Room temperature is about 290K, $0K$​  is absolute zero
 
-### Triple point of water
+
+
+### thermoscope & thermometer(测温仪和温度计)
+
+区别：
+
+* 测温仪（thermoscope）没有经过校准，它所显示的数字并没有实际意义
+* 温度计（thermometer）精准一些
+
+### zeroth law of theromodynamics
+
+这个结论是由测温仪对两个等温物体贴合后发现示数不变得出的，从这个结论我们知道温度计是可行的
+
+when two bodies are in thermal equilibrium, their temperatures are equal
+
+### Triple point of water(三相点)
 
 $$
 T_{3} = 273.16K
 $$
 
-at this temperature, liquid water, solid ice and water vapor can coexist
+* at this temperature, liquid water, solid ice and water vapor can coexist
+
+  
 
 ### 测量未知气体的温度
 
+由理想气体质量方程在恒容气体测温仪的条件下，我们有 $T = cp$ 其中 $c$ 为一个常数。对气体在某一个温度下的温度 $T$ 列等式，与气体在三相点时的温度 $T_{3} = 273.16K$ 的等式联立，我们有下面这个方程
 $$
 T = 273.16K(\lim_{gas\rightarrow 0}\frac{p}{p_{3}})
 $$
 
- $p_{3}$ 是温度处在三相点时的压强
+ $p_{3}$​ 是温度处在三相点时的压强对
+
+#### 问题
+
+这个温度计的缺陷在于，用不同的气体作为仪器的填充，因为不同气体具有不同的热力学性质，会造成示数微小的偏差。我们发现当我们不断减少填充的气体时，示数趋近于一个单一的值。
+
+可能是因为减少气体量之后，气体分子之间的相互作用减小，气体的行为越来越接近理想气体
+
+## Celsius & Fahrenheit 
 
 ### 摄氏度和华氏度
 
 $$
-T_{c} = T - 273.15
+T_{C} = T - 273.15
 $$
+
 
 $$
 T_{F} = \frac{9}{5}T_{c} + 32
@@ -55,11 +88,11 @@ $$
 \beta = 3\alpha
 $$
 
-## 热容
+## absorption of heat
 
 ### 热容(heat capacity)
 
-单位温度储存的热量
+热容 $C$ 表示单位温度储存的热量
 $$
 Q = C\Delta T = C(T_{f}-T_{i})
 $$
@@ -74,6 +107,28 @@ $$
 ### 摩尔比热容(molar specific heat)
 
 跟比热容相比把质量改成摩尔了
+
+### 前提
+
+对固体和液体测量和应用比热容这个概念时，我们需要明确是在恒压还是恒容的条件下进行的。计算结果表明，用这种条件的区别只有百分之几。但对于气体来说就不是这样子的了
+
+### 三态变化
+
+对于物质从液体，固体，气体其中之一转化成另一态的过程所吸收的能量可以表示为
+$$
+Q = Lm
+$$
+其中 $L$ 为转化热， 细分则有熔化热 $L_{F}$ (heat of fusion)和 气化热 $L_{V}$​ (heat of vaporization)
+
+注意它的单位一般为 $KJ/kg$
+
+### 单位变化
+
+$$
+1 cal = 3.968 * 10^{-3}Btu = 4.1868J
+$$
+
+
 
 ## 热力学
 
