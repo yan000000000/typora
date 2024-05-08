@@ -26,11 +26,9 @@ LED 即发光二极管，当 LED 内有电流通过时会发光，在安全电�
 
 ![image-20240508145840727](.assets/image-20240508145840727.png)
 
-4. 依次对三个引脚都这么做
+4. 依次对三个引脚都这么做我们就可以在左边那一栏看到这三个打开的引脚的信息
 
 	![image-20240508151829847](.assets/image-20240508151829847.png)
-
-	我们就可以在左边那一栏看到这三个打开的引脚的信息
 
 5. 在cubemx中修改对应引脚的名字（方便之后写代码的时候用）
 
@@ -69,7 +67,7 @@ void HAL_GPIO_WritePin(GPIOH, GPIO_PIN_10, GPIO_PIN_SET)
 1. 用keil打开我们的程序， 找到main.c并双击，我们看到了我们的主程序页面，我们可以看到我们的程序经过HAL_Init(), MX_GPIO_Init()已经完成了初始化，那么我们就在这之后的部分进行书写
 2. 我们可以将程序写在while中使得灯常亮，程序如下
 
-```
+```c++
 		HAL_GPIO_WritePin(LED_RED_GPIO_Port,LED_RED_Pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(LED_BLUE_GPIO_Port,LED_BLUE_Pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(LED_GREEN_GPIO_Port,LED_GREEN_Pin, GPIO_PIN_SET);
