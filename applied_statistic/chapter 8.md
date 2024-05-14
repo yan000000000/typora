@@ -165,4 +165,138 @@ Solution:
    $$
    Hence we derive $\hat{\theta} = \frac{n}{y_{n}}$ (<font color = '#e65529'>estimate</font>)
 
-   and $\hat{\Theta} = (\frac{\sum_{i=1}^{n}x_{i}}{n})^{-1}$ 
+   and $\hat{\Theta} = (\frac{\sum_{i=1}^{n}x_{i}}{n})^{-1}$​ (<font color = '#e65529'>estimator</font>) 
+   
+   From estimator, we can find out that the result is the inverse of the sample mean of the interarrival times(即到达间隔时间的样本空间的倒数)， it can be interpreted as an empirical arrival rate.
+
+### Confidence Intervals(置信区间)
+
+#### Definition
+
+Consider an estimator $\hat{\Theta}_{n}$ of an unknown parameter $\theta$. Besides the numerical value provided by an estimate, we are often interested in constructing a so-called <font color = '#e65529'>confidence interval</font>. To be frank, this is an interval that contains $\theta$ with a certain high probability for every possible value of $\theta$​ 
+
+> 置信区间给出一个范围，我们相信这个范围会以一定的概率，即置信水平(confidence level),包含真实的参数值。比如，我们说一个参数的95%置信区间是从20到30。这一位这我们如果我们从同一个样本空间中反复抽样并计算置信空间，大约95%的置信区间会包含真实的参数值。
+
+#### e.g. 
+
+Let us first fix a desired confidence level, $1-\alpha$ where $\alpha$ is typically a small number. We then replace the point estimator $\hat{\Theta}_{n}$ by a lower estimator $\hat{\Theta}_{n}^-$ and an upper estimator $\hat{\Theta}_{n}^{+}$ s.t.
+$$
+P(\hat{\Theta}_{n}^- < \theta < \hat{\Theta}_{n}^{+}) \geq 1-\alpha 
+$$
+for every possible value of $\theta$. We then call $[\hat{\Theta}_{n}^{-}, \hat{\Theta}_{n}^{+}]$ a $(1-\alpha)$​ <font color = '#e65529'>confidence interval</font>
+
+<font color = '#3e9e02'>因为 $\alpha $ 是一个很小的值，所以$1-\alpha$ 是一个很大的值</font>
+
+## Linear Regression(线性回归)
+
+### 出发点
+
+Here we will consider the case of only <font color = '#e65529'>two variables</font> for illustration.
+
+1. What we want is to model the relation between two variables of interest, based on a collection of data pairs $(x_{i},y_{i})$ where $i = 1,2,\cdots,n$  e.g. $x$ and $y$, years of education and income, and $x_{i},y_{i}$ are the data plots
+
+2. Usually we would like to choose a two-dimensional plot in order to find out some systematic linear relation between $x_{i}$ and $y_{i}$, and build a linear model of the form  $y\approx \theta_{0}+\theta_{1}x$ where $\theta_{0},\theta_{1}$ are unknown parameter to be estimated
+
+3. By giving some estimate $\theta_{0},\theta_{1}$ , we can calculate the corresponding $y_{i}$ to $x_{{i}}$ as predicted by the model $\hat{y}_{{i}} =\hat{\theta}_{{0}}+\hat{\theta}_{{1}}x_{i}$ which is different from the actual value $y_{{i}}$. We call the corresponding difference $\tilde{y}_{{i}} = \hat{y}_{i}-y_{i}$ the $i$ th <font color = '#e65529'>residual</font>
+
+4. Of course we want to make this residual as small as possible to provide a good fit to the data. So the linear regression approach chooses the parameter estimates $\hat{\theta}_{{0}}$ and $\hat{\theta}_{{1}}$ that minimize the sum of the squared residuals
+   $$
+   \sum_{i=1}^{n}(y_{i}-\hat{y}_{i})^2 = \sum_{i=1}^{n}(y_{i}-\theta_{0}-\theta_{1}x_{i})^2
+   $$
+
+> [!note]
+>
+> * the postulated linear modeal may or may not be true
+> * The true relation between the two variables may be <font color = '#e65529'>nonlinear</font>
+> * In practice, we may have an additional phase where we examine whether the hypothesis of a linear model is supported by the data and try to validate the estimated model.
+
+
+
+### 计算
+
+Given $n$ data pairs $(x_{i},y_{i})$, the estimates that minimize the sum of the squared residuals are given by
+$$
+\hat{\theta_{1}} = \frac{\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}} \\
+\hat{\theta}_{0} = \bar{y}-\hat{\theta}_{1}\bar{x}
+$$
+Where $\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$,  $\bar{y} = \frac{1}{n}\sum_{i=1}^{n}y_{i}$  
+
+## Binary Hypothesis Testing(二元假设检测)
+
+### Intro
+
+We revisit the problem of choosing between two hypothesis. We assume we have no prior probabilities but with two hypothesis: $H_{0}$ and $H_{1}$. 
+
+In traditional language, hypothesis $H_{0}$ is often called <font color = '#e65529'>null hypothesis</font>(虚假设) and hypothesis $H_{1}$ is called <font color = '#e65529'>alternative hypothesis</font>(替代假设).  $H_{0}$ can be seemed as the default model to be proved or disproved on the basis of available data.
+
+We have corresponding observation a vector $X=(X_{1},\cdots, X_{n})$ of random variables whose distribution depends on the hypothesis.
+
+### Notation
+
+ $P(X\in A;H_{j})$: This is the probability that the observation $X$ belongs to a set $A$ when hypothesis $H_{j}$ is true
+
+ $p_{X}(x;H_j)/f_{X}(x;H_{j})$: This the PMF or PDF of the vector $X$ under hypothesis $H_{j}$ 
+
+Same with the classical inference framework, here notice that $P(X\in A;H_{j})$ is <font color = '#e65529'>not conditional probability</font> 
+
+### Further
+
+<img src="assets/image-20240509154935484.png" alt="image-20240509154935484" style="zoom:50%;" />
+
+
+
+Given that we have a vector observation, we can apply decision rule which makes a partition of the set of all possible $X = X_{1},\cdots, X_{n}$ into two subsets: the <font color = '#e65529'>rejection region $R$</font> and the<font color = '#e65529'> acceptance region $R^{c}$</font> .
+
+For a particular choice of the rejection region $R$, there are two possible types of errors.
+
+* <font color ='#e65529'>Type I error</font>(false rejection): Reject $H_{0}$ even though $H_{0}$ is true. Happen with probability $\alpha(R)=P(X\in R; H_{0})$ 
+* <font color = '#e65529'>Type II error</font>(false acceptance): Accept $H_0$ even though $H_{0}$ is false. Happen with probability $\beta(R) = P(X \notin R;H_{1})$ 
+
+> [!caution]
+>
+> Here $P(X\in R;H_{0})$ means $X$ in Rejection Region $R$ instead of the Real number set. Same with $P(X\notin R; H_1)$​ 
+
+------
+
+
+
+To motivate a particular form of rejection region, we draw an analogy with Byesian hypothesis testing <font color = '#3e9e02'>虽然我不知道为什么要引入先验概率和贝叶斯公式</font> 
+
+We involve two hypothesis $\Theta = \theta_{0}$ and $\Theta = \theta_{1}$ with respective prior probabilities $p_{\Theta}(\theta_{0})$ and $p_{\Theta}(\theta_{1})$, by using the MAP rule, we can minimize the overall probability of error.
+
+Given the observed value $x$ of $X$, declare $\Theta = \theta_{1}$ be true if
+$$
+p_{\Theta}(\theta_{0})p_{X|\Theta}(x|\theta_{0}) < p_{\Theta}(\theta_{1})p_{X|\Theta}(x|\theta_{1})
+$$
+Or equivalently by dividing each side, we have
+$$
+\frac{p_{\Theta}(\theta_{0})}{p_{\Theta}(\theta_{1})}<\frac{p_{X|\Theta}(x|\theta_{1})}{p_{X|\Theta}(x|\theta_{0})}
+$$
+We define the left side of the above equation as the <font color = '#e65529'>critical value</font> $\xi$ and the right side as <font color = '#e65529'>the likelihood ratio</font> $L(x)$​, we can also declar $\Theta = \theta_{1}$ to be true if the realized value $x$ of the observation vector $X$ satisfies $L(x)\geq \xi$ 
+
+> [!note] 
+>
+> If $X$ is continuous, the approach is the same, except the likelihood ratio is defined as a ratio of PDFs: $L(x) = \frac{f_{X|\Theta}(x|\theta_{1})}{f_{X|\Theta}(x|\theta_{0})}$​ 
+
+
+
+Conclude by above, motivated by the preceding form of the MAP rule(<font color = '#3e9e02'>这段话我不是很理解，先按照课间写下来</font>), we can consider the rejection regions of the form $R = \{x|L(x)>\xi\}$ <font color = '#3e9e02'>不知道这里为什么又不用取等号了</font>where the likelihood ratio could be in either discrete case or continuous case. 
+
+The critical value $\xi$ remains free to be chosen on the basis of other considerations
+
+### Likelihood Ratio Test(LRT)(似然比)
+
+Start with a target value $\alpha$ for the <font color = '#e65529'>false rejection probability</font>. We choose a value for $\xi$ such that the false rejection probability is equal to $\alpha$:
+$$
+P(L(x)>\xi) = \alpha
+$$
+Once the value $x$ of $X$ is observed, we <font color = '#e65529'>reject $H_{0}$ if $L(x)>\xi$</font>. 
+
+Usually we have some typical choices for $\alpha$ like $\alpha = 0.1$, $\alpha = 0.05$, or $\alpha = 0.01$, depending on the degree of undesirability of false rejection
+
+To be able to apply the LRT to a given problem, the following are required.
+
+* We must be able to compute $L(x)$ for any given observation value $x$ so that we can compare it with the critical value $\xi$ 
+* We must either have a given exression for the distribution of $L(X)$ or of a related r.v. such as $logL(x)$ or we must be able to approximate it analytically computationally, or through simulation.
+
+This is needed to determine the critical value $\xi$ that corresponds to a given false rejection probability $\alpha$ 

@@ -220,21 +220,3 @@ which means that this probabilities can be positive and there may exist once in 
 
  $M_n$ converges to $\mu$ with a probability of 1 
 
-> [!tip]
-
-
-
-
-
-> [!caution]
-
-> [!caution] 
-
-> [!caution]  
-
-
-
-> [!caution] 
->
-> 
-
