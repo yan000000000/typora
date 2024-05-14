@@ -110,4 +110,89 @@ void HAL_GPIO_TogglePin(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
 
 ![image-20240508184102069](.assets/image-20240508184102069.png)
 
-2. 
+2. 定义如下四个函数，user_delay_us(), nop_delay_us()微秒级别的延时，user_delay_ms(), nop_delay_ms()毫秒级别的延时
+
+![image-20240508205056298](.assets/image-20240508205056298.png)
+
+附代码
+
+```c++
+void user_delay_us(uint16_t us);
+void nop_delay_us(uint16_t us);
+void user_delay_ms(uint16_t ms);
+void nop_delay_us(uint16_t ms);
+
+void user_delay_us(uint16_t us)
+{
+	for(; us > 0;us--)
+	{
+		for(uint8_t i = 10; i > 0; i--)
+		{
+			__nop();
+			__nop();
+			__nop();
+			__nop();
+			__nop();
+			__nop();
+			__nop();
+			__nop();
+			__nop();
+			__nop();
+			__nop();
+			__nop();
+			__nop();
+			__nop();
+			__nop();
+		}
+	}
+}
+
+void nop_delay_us(uint16_t us)
+{
+	for(; us > 0;us--)
+	{
+		for(uint8_t i = 50; i > 0; i--)
+		{
+		
+		}
+	}
+}
+
+void user_delay_ms(uint16_t ms)
+{
+	for(; ms > 0;ms--)
+	{
+		user_delay_us(1000);
+	}
+}
+
+void nop_delay_ms(uint16_t ms)
+{
+	for(; ms > 0;ms--)
+	{
+		nop_delay_us(1000);
+	}
+}
+```
+
+3. 之后我们就可以在main函数里调用他们啦。同样地，我们放在while循环里，分别用三个延时函数。
+
+![image-20240508205407439](.assets/image-20240508205407439.png)
+
+这里我只翻转蓝色和绿色。因为比较好看。可以试试用不同时长的延时看看效果。附代码
+
+```c++
+		HAL_GPIO_TogglePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin); //翻转蓝色LED灯
+		HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin); //翻转绿色LED灯
+		nop_delay_ms(1000);
+		
+		HAL_GPIO_TogglePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin); //翻转蓝色LED灯
+		HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin); //翻转绿色LED灯
+		HAL_Delay(1000);
+		
+		HAL_GPIO_TogglePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin); //翻转蓝色LED灯
+		HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin); //翻转绿色LED灯
+	  user_delay_ms(1000);
+```
+
+4. 这样就成功让LED灯闪烁啦

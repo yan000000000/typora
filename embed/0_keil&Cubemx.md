@@ -10,7 +10,7 @@
 
 ![image-20240427140903187](.assets/image-20240427140903187.png)
 
-3. 在System Core下选择RCC选项，在RCC Mode and Configuration选项中的High Speed Clock（HSE）下选择Crystal/Ceramic Resonator
+3. 在System Core下选择RCC选项，在RCC Mode and Configuration选项中的High Speed Clock（HSE）下选择Crystal/Ceramic Resonator。这一步是为了选择外部晶振来充当我们的振荡源
 
 ![image-20240427141212099](.assets/image-20240427141212099.png)
 
