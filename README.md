@@ -1,6 +1,7 @@
 # Note
 
-------
+## CN
+
 
 ### 打个招呼
 
@@ -36,7 +37,36 @@
 
 
 
-### En
+## EN
+
+### Hi
 
 Hello, I am yanlin, please feel free to take my work to review for the respective course. Don't forget to subscribe and give my repo a small star. Thx!
 
+### Index
+
+* **applied_statistic:** (year 1 fall)
+* **c++:** (year 1 fall)
+* **css:** (front edge for web development, through YouTube)
+* **data:** -> data structure (year 1 spring)
+* **Embed:** (Robomaster embed note, mainly combine keil, CubeMX to do stm32 development)
+* **hardware:** (Robomaster)
+* **html:** (front edge for web development, through YouTube)
+* **math:** calculus(year 1)
+* **others:** 
+* **physics:** (year 1)
+* **python:** (year 1 fall)
+* **Stm32:** embed development (through bilibili)
+* **typora_tech:** summary for latex and mermaid in typora 
+
+### Method
+
+* currently I use typora as my markdown editor
+* Using CSS originally from open source and edited after(put in Typora_tech folder)
+  * reference [theme 1](https://github.com/liangjingkanji/DrakeTyporaTheme) [theme 2](https://github.com/Theigrams/My-Typora-Themes)
+
+* Latex shortcut
+  * **window:** autohotkey + gpt
+  * **Mac:** bettertouchtool/ hammerspoon
+
+* Others
