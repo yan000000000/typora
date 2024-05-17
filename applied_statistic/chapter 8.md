@@ -299,4 +299,10 @@ To be able to apply the LRT to a given problem, the following are required.
 * We must be able to compute $L(x)$ for any given observation value $x$ so that we can compare it with the critical value $\xi$ 
 * We must either have a given exression for the distribution of $L(X)$ or of a related r.v. such as $logL(x)$ or we must be able to approximate it analytically computationally, or through simulation.
 
-This is needed to determine the critical value $\xi$ that corresponds to a given false rejection probability $\alpha$ 
+This is needed to determine the critical value $\xi$ that corresponds to a given false rejection probability $\alpha$​ 
+
+## Significance Testing(显著检验)
+
+### Intro
+
+We introduce hypothesis testing in the prior chapter. However, in realistic setting, it doesn't always involve two well-specified alternatives.

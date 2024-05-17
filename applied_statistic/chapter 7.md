@@ -68,7 +68,7 @@ We defined the unknown quantity of interest is modeled as a random variable as $
 ### Basic procedure
 
 1. We assume that we know the joint distribution of $\theta$ and $X$ 
-2. Equivalently, we assume we know <font color = '#e65529'>a prior distribution</font> $p_{\theta}$ or $f_{\theta}$ depending on whether $\theta$ is discrete or continuous. 
+2. Equivalently, we assume we know <font color = '#e65529'>a prior distribution</font> $p_{\theta}$¬ or $f_{\theta}$ depending on whether $\theta$ is discrete or continuous. 
 3. We also assume that we know <font color = '#e65529'>a conditional distribution</font> $p_{X|\theta}$ or $f_{X|\theta}$ depending on whether $X$ is discrete or continous.
 
 After a particular value $x$ of $X$ has been observed, we can calculate the <font color = '#e65529'>posterior</font> distribution of $\theta$ using the <font color = '#e65529'>appropriate version of Bayes' rule</font>
