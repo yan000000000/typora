@@ -140,24 +140,21 @@ Solution:
 
    The corresponding likelihood function is
    $$
-   f_{X}(x;\theta) = \Pi_{i=1}^{n}f_{X_{i}}(x_{i};\theta) = \Pi_{i=1}^n \theta e^{-\theta x_{i}}
+   f_{X}(x;\theta) = \Pi_{i=1}^{n}f_{X_{i}}(x_{i};\theta) = \Pi_{i=1}^n \theta e^{-\theta x_{i}} = \theta^ne^{-\theta\sum_{i = 1}^{n}x_{i}}
    $$
 
    > [!note]
    >
    > recall that the $f_{X}(x;\theta)$ is a joint PDF related to the value of $\theta$. Given that they are independent, so that we can multiply them all together. 
 
-2. We take log on both sides
+2. Here we define $y_{n}$ and substitute $y_{n} = \sum_{i=1}^{n}x_{i}$ into the formula. Then, we take log on both sides
    $$
-   ln \ f_{X}(x;\theta) = ln \ \Pi_{i = 0}^{n}\theta e^{-\theta x_{i}}\\
-   = \Pi_{i = 0}^{n}ln(\theta e^{-\theta x_{i}})\\
-   =nlog\theta - \theta \sum_{i=1}^{n}x_{i}\\
-   =nlog\theta - \theta y_{n}
+   ln \ f_{X}(x;\theta) = ln \ ^{\theta^{n}e^{-\theta y_{n}}}
+   = ln^{\theta ^{n}} + ln^{e^{-\theta \ y_{n}}}
+   =nln^{\theta}-\theta \ y_{n}
    $$
-   here we have $y_{n} = \sum_{i=1}^{n}x_{i}$ 
-
-   <font color = '#3e9e02'>不懂那个n怎么来的</font>
-
+   here we can treat log as ln
+   
 3. We take derivative and set it to 0. <font color = '#e65529'>Here we take derivative with respect to the parameter</font>
    $$
    \frac{d}{d\theta} \ nlog\theta - \theta y_{n} = 0\\
@@ -496,6 +493,18 @@ There is no universal method for choosing the "right" statistic $S$.
 * **应用背景**：虽然二者在许多统计分析中都是相关且常用的，但显著性检验的应用更为广泛，不局限于只有两个特定假设的情况。
 
 总的来说，二元假设检验可以被看作是显著性检验的一个特定应用情形，其中专门涉及两个明确且对立的假设。
+
+
+
+
+
+ $X\sim N(0,3^{2}), Y\sim N(0,3^{2})$  $X$ and $Y$ are independent
+
+ $X_1,\cdots, X_{9}$ is a simple random sample from $X$
+
+ $Y_{1},\cdots, Y_{9}$ is a simple random sample from $Y$
+
+we have $\frac{a}{\sqrt{\sum_{i=1}^{9}Y_{i}^{2}}}\sum_{i=1}^{9}X_{i}\sim t(b)$, find $a$ and $b$ 
 
 
 

@@ -50,7 +50,7 @@ Given the outcomes, what can we say about <font color = '#e65529'>the process th
 
 > [!note]
 >
-> The **samples** mentioned later all refer to **simple random samples**. According to probability theory, if the population $X$ has probability density $f(x)$, then the sample $(X_{1},X_{2},\cdots,X_{n})$  has the joint density function:
+> The **samples** mentioned later all refer to <font color = '#e65529'>simple random samples</font>. According to probability theory, if the population $X$ has probability density $f(x)$, then the sample $(X_{1},X_{2},\cdots,X_{n})$  has the <font color = '#e65529'>joint density function</font>:
 > $$
 > f_{n}(x_{1},x_{2},\cdots,x_{n}) = \Pi_{i = 1}^{n}f(x_{i})
 > $$
@@ -67,13 +67,13 @@ Given the outcomes, what can we say about <font color = '#e65529'>the process th
 For an infinite population, we have 2 property
 
 * The population capacity is relatively large
-* Sometimes it's convenient to put back sampling (fireworks, mask)
+* Sometimes it's <font color = '#e65529'>inconvenient</font> to put back sampling (fireworks, mask)
 
 For large population capacity, consider replacement and reverse, suppose there is n sample in the population:
 
-Replacement: we have probabilities of  $\frac{1}{n}*\frac{1}{n}$
+**Replacement:** we have probabilities of  $\frac{1}{n}*\frac{1}{n}$
 
-Reverse: we have probabilties of  $\frac{1}{n}*\frac{1}{n-1}$ 
+**Reverse:** we have probabilties of  $\frac{1}{n}*\frac{1}{n-1}$ 
 
 The difference between 2 situations could be really small when the denominator become relatively large $n \rightarrow \infty$ 
 
@@ -111,7 +111,7 @@ The distribution of the statistic is called the sampling distribution, above is 
 
 For the terms $\chi^2\sim\chi^{2}(n)$​, 
 
-* For $\chi^{2}\sim\chi^{2}(1)$, it is read as $\chi^{2}$ distribution with 1 degree of freedom
+* For $\chi^{2}\sim\chi^{2}(1)$, it is read as $\chi^{2}$ distribution with 1 <font color = '#e65529'>degree of freedom</font>
 
 * The first $\chi^{2}$ represent the random variable follow PDF. You can replace it as other letter, e.g. $Y\sim\chi^{2}(n)$
 
@@ -121,7 +121,7 @@ For the terms $\chi^2\sim\chi^{2}(n)$​,
 
 
 
-The probability density function of $\chi^2$ distribution is given as
+The probability density function of $\chi^2$ distribution is given as <font color = '#e65529'>. # no need to memorize</font>
 $$
 f_{n}(y)=\begin{cases} \frac{1}{2\Gamma(\frac{n}{2})}(\frac{y}{2})^{\frac{n}{2}-1}e^{-\frac{y}{2}} \ \ \ \ y>0\\
 0 \ \ \ \ \ \ \ \ y\leq 0 \end{cases}
@@ -136,20 +136,42 @@ From $k = 3$, the graph starts from the origin point
 
 #### properties
 
-* Assume $\chi^{2}\sim\chi^2(n)$, then we have $E(\chi^2)=n$, $D(\chi^{2}=2n)$ 
+* Assume $\chi^{2}\sim\chi^2(n)$, then we have $E(\chi^2)=n$, $D(\chi^{2})=2n$. Here D() refer to variance
 * Assume  $Y_{1}\sim\chi^{2}(n_{1})$, $Y_{2}\sim\chi^{2}(n_{2})$, $Y_{1}$ and $Y_{2}$ are <font color = '#e65529'>independent</font> with each other, then we have <font color = '#e65529'>$Y_{1}+Y_{2}\sim\chi^{2}(n_{1}+n_{2})$</font> 
 
-The second property is the additivity. It can be extended to a finite number of cases: $Y_{i}\sim\chi^{2}(n_{i})=1,2,\cdots,m$
-
-* Assume that $Y_{1},Y_{2},\cdots,Y_{m}$ are <font color = '#e65529'>independent</font> with each other, then we have
-
-$$
-\sum_{i=1}^{m}Y_{i}\sim\chi^2(\sum_{i=1}^{m}n_{i})
-$$
-
-#### e.g.
 
 
+##### proof
+
+1.  $E(\chi^{2}) = n$. For variance of a standard normal, we have $var(X) = 1, E[X] = 0$ 
+
+   So, from $var(X)= E[X^{2}]-(E[X])^{2}$, we know that $E[X^{2}] = var(X) = 1$. 
+
+   For $\chi^{2}$ distribution, we have $E[\chi^{2}(n)] = E[X_{1}^{2}+X_{2}^{2}+\cdots+X_{n}^{2}]$ which are all independent and standard normal.
+
+   So we have
+   $$
+   E[\chi^{2}(n)] = E[X_{1}^{2}]+E[X_{2}^{2}]+\cdots+X_{n}^{2} = n
+   $$
+
+2.  $D(\chi^{2}) = 2n$. Similar to 1, we have $var(X^{2})= E[X^{4}]-(E[X])^4$. By integration, we can get $E[X^{4}]$ for a standard normal equal to 3. Hence, we have
+   $$
+   var(X^{2}) = 3 - 1 = 2
+   $$
+
+   $$
+   D(\chi^{2}) = var(X_{1}^{2})+\cdots+var(X_{n}^{2})\\
+   =2+\cdots+2\\
+   =2n
+   $$
+
+3.  The second property is the additivity. It can be extended to a finite number of cases: $Y_{i}\sim\chi^{2}(n_{i})=1,2,\cdots,m$
+
+   * Assume that $Y_{1},Y_{2},\cdots,Y_{m}$ are <font color = '#e65529'>independent</font> with each other, then we have
+
+   $$
+   \sum_{i=1}^{m}Y_{i}\sim\chi^2(\sum_{i=1}^{m}n_{i})
+   $$
 
 ### t-distribution
 
@@ -159,20 +181,22 @@ $$
 
 
 
-The probability density of $t(n)$ distribution is
+The probability density of $t(n)$ distribution is <font color = '#e65529'>. # no need to memorize</font>
 $$
-f(t,n)=\frac{\Gamma(\frac{n+1}{2})}{\sqrt{n\pi}\Gamma(\frac{n}{2})}(1+\frac{t^{2}}{n})^{-\frac{n+1}{2}}, \ \ \ \ -\infty < t<+\infty
+f(t,n)=\frac{\Gamma(\frac{n+1}{2})}{\sqrt{n\pi} \ \Gamma(\frac{n}{2})}(1+\frac{t^{2}}{n})^{-\frac{n+1}{2}}, \ \ \ \ -\infty < t<+\infty
 $$
 
 #### Graph
 
 <img src="assets/t_distribution_comparisons.png" alt="t_distribution_comparisons" style="zoom: 50%;" />
 
-<font color = '#3e9e02'>The 'df' in the image represent degree of freedom</font>
+> [!note] 
+>
+> The 'df' in the image represent degree of freedom
 
 
 
-From the graph, we can conclude that as df grow greater, the shape of it becomes more similar to the standard normal
+From the graph, we can conclude that as df grow greater, the shape of it becomes more similar to the <font color = '#e65529'>standard normal</font>
 
 ### F distribution
 
@@ -302,7 +326,7 @@ Where  $S_{W}^{{2}}=\frac{(n_{1}-1)S_{1}^{{2}}+(n_{2}-1)S_{2}^{2}}{n_{1}+n_{2}-2
 
 ###### proof
 
-Given tha $\sigma^{2}$ is the same. From conclusion 6, let $U = \cfrac{(\bar{X}-\bar{Y})-(\mu_{1}-\mu_{2})}{\sigma\sqrt{\frac{1}{n_{1}}+\frac{1}{n_{2}}}}$ 
+Given that $\sigma^{2}$ is the same. From conclusion 6, let $U = \cfrac{(\bar{X}-\bar{Y})-(\mu_{1}-\mu_{2})}{\sigma\sqrt{\frac{1}{n_{1}}+\frac{1}{n_{2}}}}$ 
 
 Let $V = \frac{(n_{1}-1)S_{1}^{{2}}}{\sigma^{2}} + \frac{(n_{2}-1)S_{2}^{{2}}}{\sigma^2}$ from conclusion 2
 

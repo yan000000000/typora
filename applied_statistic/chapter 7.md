@@ -53,12 +53,12 @@ $$
 If we divide the event $B$ into multiple intersection with event $A$, we have
 $$
 P(B) = P(A_{1}\cap B)+P(A_{2}\cap B)+\cdots+P(A_{n}\cap B)\\
-=P(A_{1}|B)P(B)+P(A_{2}|B)P(B)+P(A_{n}|B)P(B)\\
-=\sum_{i=1}^{n}P(A_{i}|B)P(B)
+=P(B|A_{1})P(A_{1})+P(B|A_{2})P(A_{2})+P(B|A_{n})P(A_n)\\
+=\sum_{i=1}^{n}P(B|A_{i})P(A_{i})
 $$
 so another form of bayes theorem is 
 $$
-P(A|B) = \frac{P(A)P(B|A)}{\sum_{i=1}^{n}P(A_{i}|B)P(B)}
+P(A|B) = \frac{P(A)P(B|A)}{\sum_{i=1}^{n}P(B|A_{i})P(A_{i})}
 $$
 
 ### Bayesian inference
@@ -90,10 +90,12 @@ f --> h(Condition Expectation)
 | ------------------------------------ | ------------------------------------------------------------ |
 | $\Theta$ discrete,  $X$ discrete     | $p_{\Theta | X}(\theta |x)=\cfrac{p_{\Theta}(\theta)p_{X|\Theta}(x|\theta)}{\sum_{\theta '}^{}p_{\Theta}(\theta')p_{X|\Theta}(x|\theta')}$ |
 | $\Theta$ discrete,  $X$ continuous   | $p_{\Theta|X}(\theta |x)=\cfrac{p_{\Theta}(\theta)f_{X|\Theta}(x|\theta)}{\sum_{\theta'}^{}p_{\Theta}(\theta')f_{X|\Theta}(x|\theta')}$ |
-| $\Theta$ continuous, $X$ discrete    | $p_{\Theta|X}(\theta|x)=\cfrac{f_{\Theta}(\theta)p_{X|\theta}(x|theta)}{\int f_{\Theta}(\theta')p_{X|\Theta}(x|\theta') \ d\theta'}$ |
-| $\Theta$ Continuous,  $X$ continuous | $p_{\Theta|X}(\theta|x)=\cfrac{f_{\Theta}(\theta)f_{X|\Theta}(x|\theta)}{\int f_{\Theta}(\theta')f_{X|\Theta}(x|\theta') \ d\theta'}$ |
+| $\Theta$ continuous, $X$ discrete    | $f_{\Theta|X}(\theta|x)=\cfrac{f_{\Theta}(\theta)p_{X|\theta}(x|\theta)}{\int f_{\Theta}(\theta')p_{X|\Theta}(x|\theta') \ d\theta'}$ |
+| $\Theta$ continuous,  $X$ continuous | $f_{\Theta|X}(\theta|x)=\cfrac{f_{\Theta}(\theta)f_{X|\Theta}(x|\theta)}{\int f_{\Theta}(\theta')f_{X|\Theta}(x|\theta') \ d\theta'}$ |
 
 
+
+* ![image-20240520021343464](assets/image-20240520021343464.png)
 
 ## MAP, Point estimation, hypothesis testing
 
@@ -214,6 +216,72 @@ $$
 \sum_{i}^{}P(\Theta \neq \theta_{i}, X \in_{}^{} S_{i}) = 1 - \sum_{i}^{}P(\Theta = \theta_{i}, X \in S_{i})
 $$
 
+## gpt
+
+当然可以，我将继续讲解关于最大后验概率（MAP）规则在这个图中的知识。
+
+### 正确决策的概率
+
+#### 记号和定义
+
+1. **\( $g_{MAP}(x)$ \)**：
+   - 这是当观测值 \($X = x$\) 时，由 MAP 规则选择的假设。
+   - 即，\( $g_{MAP}(x)$ \) 是使后验概率 \($P(\Theta = \theta | X = x)$\) 最大的 \($\theta$\) 值。
+
+2. **正确决策的概率**：
+   - 当观测值 \($X = x$\) 时，正确决策的概率是 $( P(\Theta = g_{MAP}(x) | X = x) )$。
+   - 这个概率表示在给定观测 \($x$\) 的情况下，实际参数 \($\Theta$) 与 MAP 估计 \($\hat{\Theta}$\) 相等的概率。
+
+3. **整体正确决策的概率**：
+   - 假设 \($S_i$\) 是一个集合，包含所有使得 \( $g_{MAP}(x) = \theta_i$ \) 的观测值 \(x\)：
+     \[
+     $S_i = \{ x : g_{MAP}(x) = \theta_i \}$
+     \]
+   - 整体正确决策的概率是对所有可能的 \( $\theta_i$ \) 进行加总的概率：
+     \[
+     $P(\Theta = g_{MAP}(X)) = \sum_i P(\Theta = \theta_i, X \in S_i)$
+     \]
+     这表示在所有观测值 \(x\) 下，做出正确决策的总体概率。
+
+4. **错误决策的概率**：
+   - 对应的错误决策的概率是对所有错误情况进行加总的概率：
+     \[
+     $\sum_i P(\Theta \neq \theta_i, X \in S_i)$
+     \]
+     这表示在所有观测值 \(x\) 下，做出错误决策的总体概率。
+
+### 理解和应用
+
+1. **假设和正确决策**：
+   - \( $g_{MAP}(x)$ \) 是基于观测值 \(x\) 做出的最有可能的假设。
+   - \( $P(\Theta = g_{MAP}(x) | X = x)$ \) 是在观测值 \(x\) 下，MAP 规则选择的假设是正确的概率。
+
+2. **划分观测值空间**：
+   - 将所有可能的观测值 \(x\) 划分成不相交的子集 \(S_i\)，每个子集对应一个假设 \($\theta_i$\)。
+   - \( $S_i$ \) 包含所有使得 \( $g_{MAP}(x) = \theta_i$ \) 的观测值 \(x\)。
+
+3. **整体正确决策的概率计算**：
+   - 对于每个子集 \($S_i$\)，计算在观测值 \(x\) 属于 \(S_i\) 时做出正确决策的概率。
+   - 通过对所有子集的概率加总，得到整体正确决策的概率。
+
+4. **整体错误决策的概率计算**：
+   - 对于每个子集 \($S_i$\)，计算在观测值 \(x\) 属于 \(S_i\) 时做出错误决策的概率。
+   - 通过对所有子集的概率加总，得到整体错误决策的概率。
+
+### 例子
+
+假设我们有三个假设 \($\theta_1, \theta_2, \theta_3$\)，对应的观测值区域分别为 \($S_1, S_2, S_3$\)。对于给定的观测值 \($x$\)，我们根据 MAP 规则选择 \($\theta_i$\)：
+
+1. **计算每个区域的概率**：
+   - \( $P(\Theta = \theta_i, X \in S_i)$ \)：在观测值 \($x$\) 属于 \($S_i$\) 时，实际参数 \($\Theta$\) 等于 \($\theta_i$\) 的概率。
+
+2. **整体正确决策的概率**：
+   - \( $P(\Theta = g_{MAP}(X)) = \sum_i P(\Theta = \theta_i, X \in S_i)$ \)。
+
+3. **整体错误决策的概率**：
+   - \( $\sum_i P(\Theta \neq \theta_i, X \in S_i)$ \)。
+
+通过这种方式，我们可以评估 MAP 规则在做出决策时的整体性能，并计算正确和错误决策的概率。
 
 ## Bayesian least mean squares estimation
 
@@ -274,10 +342,23 @@ let the derivative equal to 0, we have $\hat{\theta} = E[\Theta]$.
 
 ### Estimation with observation
 
-Suppose that we have observation $X$, we still like to estimate $\Theta$ to minimize the mean squared error.
+Suppose that we have observation $X$, we still like to estimate $\Theta$ to minimize the mean squared error. 
 
+Once we observed the value $x$ of $X$, the situation is identical to the one considered before, except everything is conditioned on $X = x$
 
+Just like we have the min mean squared estimation when $\hat{\theta} = E[\Theta]$, we assert that with the condition of observation, the conditional expectation $E[\Theta|X = x]$ <font color = '#e65529'>minimizes the conditional </font> mean squared error $E[(\Theta - \hat{\theta})^2|X = x]$ over all constants $\hat{\theta}$​ 
+
+Generally, the mean squared estimation error associated with an <font color = '#e65529'>estimator $g(X)$</font> is defined as
+$$
+E[(\Theta - g(X))^2]
+$$
+View $E[\Theta|X]$ as an estimator/function of $X$, the preceding analysis shows that out of all possible estimators, the mean squared estimation error is minimized when
+$$
+g(X) = E[\Theta|X]
+$$
+<font color = '#3e9e02'>不是很理解</font>
 
 
 
 ## Bayesian linear least mean squares estimation
+
