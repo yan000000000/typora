@@ -305,4 +305,197 @@ This is needed to determine the critical value $\xi$ that corresponds to a given
 
 ### Intro
 
-We introduce hypothesis testing in the prior chapter. However, in realistic setting, it doesn't always involve two well-specified alternatives.
+We introduce hypothesis testing in the prior chapter. However, in realistic setting, it doesn't always involve two well-specified alternatives so in these situation, the methodology can't be applied.(see non example)
+
+In this section we introduce an approach to this more general class of problems.
+
+> [!note] 
+>
+> A unique or universal methodology is not available. 
+
+#### non example
+
+* A coin is tossed repeatedly and independently, is the coin fair?
+* We observe a sequence of i.i.d. normal r.v. $X_{1}, \cdots, X_{n}$. Are they standard normal?
+* Two different drug treatments are delivered to two different groups of patients with the same disease. Is the first treatment more effective than the second?
+* On the basis of historical data(e.g. based on the last year), is the daily change of the Dow Jones Industrial Average normally distributed?
+* On the basis of several sample pairs $(x_{i}, y_{i})$ of two r.v. $X$ and $Y$, can we determine whether the two r.v.s are independent?
+* r.v. refers to random variable
+
+### Feature
+
+In all above non-example, they involves uncertainty, presumably governed by a probabilistic model.
+
+* Same with the hypothesis testing, we have <font color = '#3e9e02'>还不确定这个 same with hypothesis 是不是对的</font>
+  * a default hypothesis, or <font color = '#e65529'>null hypothesis</font>, denoted by $H_{0}$ 
+  * We wish to determine on the basis of the observations $X = (X_{1},\cdots, X_n)$, whether the null hypothesis should be rejected or not
+* We also have following characteristic to restrict the scope of our discussion
+  * **Parametric models:** We assume that the observations $X_{1},\cdots, X_{n}$ have a distribution govern by a joint PMF/PDF, which is determined by a unknown parameter $\theta$ belonging to a given set of $M$ of possible parameters.
+  * **Simple null hypothesis:** The null hypothesis asserts that the true vale of $\theta$ is equal to a given element $\theta_{0}$ of $M$​
+  * **Alternative hypothesis:** The alternative hypothesis denoted by $H_1$, is just the statement that $H_0$​ is not true
+
+### Main logic
+
+we will go through a practial example to demonstrate the main process and then we will summary the ideas
+
+
+
+### Example: Is my coin fair?
+
+#### Question:
+
+A coin is tossed independently $n= 1000$ times. Let $\theta$ be the unknown probability of heads at each toss. The set of all possible parameters is $M = [0,1]$. (<font color = '#e65529'>Here we have $M= [0,1]$ Because it represent the probability</font>) The null hypothesis $H_{0}$ (the coin is fair) is of the form $\theta = \frac{1}{2}$. The alternative hypothesis is that $\theta \neq \frac{1}{2}$ 
+
+------
+
+#### Analysis
+
+The observed data is a sequence $X_{1},\cdots,X_{n}$ where $X_{i}$ equals 1 or 0, depending on whether the  $i$th toss resulted in heads or tails. We choose to address the problem by considering the value of <font color = '#e65529'>$S = X_{1}+\cdots+X_{n}$</font> , the number of heads observed, and using a <font color = '#e65529'>decision rule</font> of the form:
+$$
+reject \ H_{0} \ if  \ |S-\frac{n}{2}| > \xi
+$$
+where $\xi$ is a suitable critical value to be determined. 
+
+> [!note]
+>
+> Here we use $\frac{n}{2}$ because we assume the probability is $\frac{1}{2}$.
+>
+> The decision rule here means the condition whether should reject $H_{0}$​​ or not.
+
+> [!caution]
+>
+> Not all problems can use the absolute value here, you should base on the specific question.
+
+However, the problem comes which $\xi$​ we should use to make it suitable enough to be the condition, we can't make it random. So we will calculate it beneath.
+
+In order to calculate the value of $\xi$, we need to specify the probability of false rejection $\alpha$ such that it satisfies
+$$
+P(reject \ H_{0};H_{0}) = \alpha
+$$
+Typically, $\alpha$, called the <font color = '#e65529'>significant level</font>, is a small number. In this example, we use $\alpha = 0.05$ 
+
+After specifying the value of $\alpha$, we can then calculate the value of $\xi$ 
+
+#### Calculate $\xi$
+
+> Under the null hypothesis, the r.v. $S$ is binomial with parameters $n = 1000$ and $p = \frac{1}{2}$. Using the normal approximation to the binomial and the normal tables, we find that an appropriate choice is $\xi = 31$​ 
+
+1. we first have the inequality of the condition of rejection, we want to calculate the $\xi$ when the probability equal to the significant level $\alpha$
+
+$$
+|S-\frac{n}{2}| > \xi \\
+P(|S-\frac{n}{2}| > \xi) = \alpha
+$$
+
+2. Because the value of sample $n$​​ is great, we can assume it follows a normal distribution. From the property of symmetry in normal, we have
+   $$
+   P(|S-\frac{n}{2}| > \xi) = 2P((S - \frac{n}{2}) > \xi) \\
+   = 2(1 - P((S - \frac{n}{2}) \leq \xi)\\
+   =\alpha
+   $$
+
+3. And then, in order to get the specific value, we need to transform $S-\frac{n}{2}$ into a standard normal, so we have
+
+$$
+2(1 - P((S - \frac{n}{2}) \leq \xi) = 2(1 - P(\frac{S - \frac{n}{2}}{\sigma} \leq \frac{\xi}{\sigma})\\
+=\alpha
+$$
+
+4. The variance of a binomial is $np(1-p)$, so the standard deviation $\sigma = \sqrt{np(1-p)}$ , we substitute the $\sigma$ and $n = 1000$, $p = \frac{1}{2}$ into the formula, we have
+
+$$
+2(1 - P(\frac{S - 500}{\sqrt{250}}) < \frac{\xi}{\sqrt{250}}) = 0.05
+$$
+
+5. we then have the result $p(\frac{S - 500}{\sqrt{250}}) < \frac{\xi}{\sqrt{250}})) = 0.975$. What's left is to look up the table.
+
+<img src="assets/image-20240519115918820.png" alt="image-20240519115918820" style="zoom:50%;" />
+
+6. We find out that the position of 0.9750 is on the right bottom corner of the above figure. Then, we first look at the left most number on the row(the red triangle). We have 1.9
+   Then, we look at the up most number on the column(the blue triangle). We have 0.06.
+   So we have the value of $\frac{\xi}{\sqrt{250}} = 1.96$​
+7. By calculation, we have $\xi = 31$ 
+
+#### Conclusion
+
+Hence, we have the decision rule equal to reject $H_{0}$ if $|S - 500| > 31$. 
+
+For example, we have the observed value of $S$ turns out to be $472$, we have
+$$
+|s-500| = |472-500| = 28 < 31
+$$
+And the hypothesis $H_{0}$ is <font color = '#e65529'>not rejected</font> at the 5% significance level. 
+
+> [!caution] 
+>
+> * **"not rejected"**(as opposed to "accepted") means: We do not have any firm grounds to say that $\theta$ equals $\frac{1}{2}$, as opposed to say 0.51
+> * We can only assert that <font color = '#e65529'>the observed value of $S$ does not provide strong evidence against hypothesis $H_{0}$</font> 
+
+> 相当于我们没有证明说概率等于二分之一是对的，而是说它不错。类似老师上课举的例子，评价一个人说他/她好和不坏是不一样的对吧 
+
+
+
+### Summary: Methodology
+
+A statistical test of a hypothesis  $H_{0}:\theta = \theta^{*}$ is to be performed, based on the observations $X = X_{1}, \cdots,X_{n}$ 
+
+#### before observed
+
+1. choose a statistic $S$, that is, a scalar random variable that will summarize the data $X$. This involves the choice of a function $h:R^{n}\rightarrow R$, resulting in the statistic $S = h(X)$ 
+
+2. Determine the shape of the rejection region by specifying the set of values of $S$ for which  $H_{0}$ will be rejected as a function of a yet undetermined critical value $\xi$.
+
+   In specific, the rejection region could be either one-tailed$(S > \xi$ or $S < \xi)$ or two-tailed $(|S-\mu| > \xi)$ depending on the pracital example
+
+3. Choose the significant level, the value of probability $\alpha$ of a false rejection of $H_{0}$ 
+
+4. Calculate the critical value $\xi$ so that the probability of false rejection is equal to $\alpha$​ 
+
+#### After observed
+
+Once the values $x_{1},\cdots,X_{n}$ of $X_{1},\cdots, X_{n}$ are observed
+
+1. Calculate the value  $s = h(x_{1}, \cdots, x_{n})$ of the statistic $S$
+2. Reject the hypothesis $H_{0}$ if $s$ belongs to the rejection region
+
+
+
+### Comments
+
+There is no universal method for choosing the "right" statistic $S$.
+
+* The set of values of $S$ underwhich $H_{0}$ is not rejected is usually an interval surrounding the peak of the distribution of $S$ under $H_0$ .
+
+* Typical choices for the false rejection probability a range between $\alpha = 0.1$ and $\alpha = 0.01$
+
+* Step 4 in **before observed** section is the only place where probabilistic calculations are used.
+
+* Given the value of $\alpha$, if the hypothesis $H_{0}$ ends up being rejected,one says that $H_{0}$ is rejected at the a significance level.
+
+  > [!note] 
+  >
+  > It does not mean that the probability of $H_{0}$ being true is less than $\alpha$. nstead, it means that when this particular methodology is used, we will have false rejections a fraction  $\alpha$ of the time
+
+## 区别
+
+> 来点中文，英文看累了，以下由gpt生成
+
+显著性检验和二元假设检验实际上常常在统计实践中有交集，但可以从其定义和应用的侧重点上进行区分。
+
+### 显著性检验
+
+显著性检验主要用来判断样本中观察到的效果是否足够强烈，以至于可以推断出总体中也存在这种效果。它基于一个设定的显著性水平（如5%），计算得出的p值用于决定是否拒绝空假设。如果p值小于显著性水平，我们拒绝空假设，认为结果具有统计学上的显著性。显著性检验广泛应用于各种类型的数据分析，以确定结果是否偶然发生。
+
+### 二元假设检验
+
+二元假设检验是显著性检验的一种形式，特点在于它涉及两个互斥的假设：空假设（H0*H*0）和对立假设（H1*H*1 或 Ha*H**a*）。这种检验的目的是在两个假设之间做出选择。它通常应用于实验设计和质量控制等领域，例如检验药物是否有效、新工艺是否改善了生产效率等。
+
+### 主要区别
+
+* **目的和侧重点**：显著性检验更侧重于评估数据中观察到的效果是否不太可能仅由随机因素引起。而二元假设检验侧重于在两个明确的假设之间做选择。
+* **应用背景**：虽然二者在许多统计分析中都是相关且常用的，但显著性检验的应用更为广泛，不局限于只有两个特定假设的情况。
+
+总的来说，二元假设检验可以被看作是显著性检验的一个特定应用情形，其中专门涉及两个明确且对立的假设。
+
+
+
