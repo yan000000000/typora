@@ -38,19 +38,18 @@ LED 即发光二极管，当 LED 内有电流通过时会发光，在安全电�
 
 6. 确保自己按照CubeMx基本使用中的步骤完成后就可以点击Generate Code按键了
 
-### 代码
+### 函数介绍
 
-#### 函数
+#### HAL_GPIO_WritePin()
 
-首先介绍一下这次我们将使用的函数 HAL_GPIO_WritePin， 它的作用对指定的引脚输出高电平或者低电平
-
-```
-void HAL_GPIO_WritePin(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, GPIO_PinState PinState)
-```
-
-* 第一个参数 GPIOx 是对应GPIO总线，其中x可以是A...I 具体要参考原理图 e.g. PH10 代表Pin H10，那么就是H总线，所以我们这里填入GPIOH
-* 第二个参数 GPIO_Pin是对应引脚数，可以是0-15， e.g. PH10 则我们输入GPIO_PIN_10
-* 第三个参数是设置高电平或者低电平， GPIO_PIN_RESET -> 代表术输出低电平 GPIO_PIN_SET -> 代表输出高电平
+| 函数           |                                                              |
+| -------------- | ------------------------------------------------------------ |
+| 函数名         | HAL_GPIO_WritePin(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, GPIO_PinState PinState) |
+| 函数作用       | 对指定的引脚输出高电平或者低电平                             |
+| 返回值         | 无                                                           |
+| 参数1 GPIOx    | GPIOx 是对应GPIO总线，其中x可以是A...I 具体要参考原理图 e.g. PH10 代表Pin H10，那么就是H总线，所以我们这里填入GPIOH |
+| 参数2 GPIO_Pin | GPIO_Pin是对应引脚数，可以是0-15， e.g. PH10 则我们输入GPIO_PIN_10 |
+| 参数3 PinState | PinState对应要设置的电平，高电平或者低电平； <br />GPIO_PIN_RESET -> 代表输出低电平 <br />GPIO_PIN_SET -> 代表输出高电平 |
 
 ``` 
 void HAL_GPIO_WritePin(GPIOH, GPIO_PIN_10, GPIO_PIN_SET)
@@ -60,7 +59,7 @@ void HAL_GPIO_WritePin(GPIOH, GPIO_PIN_10, GPIO_PIN_SET)
 >
 > 这是标准的函数写法，如果在第5步我们修改了引脚标签，那么就应该改为 void HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET) 就比较好记
 
-#### 程序
+### 代码实现
 
 ![image-20240508162509135](.assets/image-20240508162509135.png)
 
