@@ -32,7 +32,7 @@ STM32 中的许多通讯如 USART，SPI，IIC 都支持 DMA 方式进行数据�
 
 	
 
-注意直接开启USART1默认开启的是PB6作为Tx，需要在引脚设置中改为PA9，不然无法正常工作
+注意这里和第8节一样，直接开启USART1默认开启的是PB6作为Tx，需要在引脚设置中改为PA9，不然无法正常工作
 
 4. 接着，我们在Connectivity标签页下将USART3打开，设置为Asynchronous异步通信方式。波特率设置为100k（100000），数据帧设置为8位数据位，无校验位，1位停止位
 
@@ -42,9 +42,7 @@ STM32 中的许多通讯如 USART，SPI，IIC 都支持 DMA 方式进行数据�
 
 ![image-20240529131418988](.assets/image-20240529131418988.png)
 
-6. 在弹出的新条目中，将 DMA Request 选为 USART1_TX，数据从存储器流向外设，Priority 选为 Very High。
-
-	![image-20240529131456494](.assets/image-20240529131456494.png)
+6. 在弹出的新条目中，将 DMA Request 选为 USART1_TX，数据从存储器流向外设，Priority 选为 Very High<font color = '#3e9e02'>这两张图有点问题，晚点换一下</font>。![image-20240529131456494](.assets/image-20240529131456494.png)
 
 7. 同样地，我们在USART3下找到DMA Settings标签页，在USART3中将DMA Request选择USART3_RX，数据从外设流向存储器，Priority选为Very High
 
