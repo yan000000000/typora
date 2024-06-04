@@ -119,3 +119,19 @@ extern const osThreadDef_t os_thread_def_##name
 ![image-20240603203845051](.assets/image-20240603203845051.png)
 
 3. 通过以上两步，一个任务就成功创建了，创建一个名称和 osThreadDef 中的 thread 参数一致的函数，操作系统会自动找到该函数并将其作为一个进程来执行。比如声明 thread 为blue_led_task，则还需要执行函数 void blue_led_task(void const * argument)，while(1)循环中的内容为用户自己的代码，这里是控制蓝色 led 灯闪烁。
+
+### IMPORTANT
+
+如果你出现用--cpp11编译莫名奇妙出现18个报错，且都是与FreeRTOS有关的问题，或者是上面的例程明明include 了外部hpp头文件但是系统没编译且在乱说没找到，请看下面的这篇文章!
+
+[FreeRTOS c与c++混合编译报错传送门](https://blog.csdn.net/weixin_59383360/article/details/131958534)
+
+[方法2](https://kurumi-guyi.top/2019/10/30/cubemx-HAL-freertos_complie_CC_file_err/) 
+
+![image-20240604202106214](.assets/image-20240604202106214.png)
+
+出现这个报错的话看一下
+
+[传送门1](http://www.cppblog.com/LT450196683/archive/2021/07/14/217750.html)
+
+[传送门2](https://blog.csdn.net/a1347065101/article/details/131587246)
