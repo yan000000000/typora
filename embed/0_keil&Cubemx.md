@@ -139,3 +139,10 @@
 [传送门：小技巧](https://zhuanlan.zhihu.com/p/541423275) 
 
 [传送门：快捷添加注释](https://blog.csdn.net/qlexcel/article/details/86071364)
+
+## 问题
+
+### keil下程序之后，程序不自动运行，需要断电重启
+
+[csdn传送门](https://blog.csdn.net/hjl2832/article/details/126951029)
+
