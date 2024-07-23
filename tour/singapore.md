@@ -36,6 +36,7 @@
   * <img src="assets/image-20240619011749894.png" alt="image-20240619011749894" style="zoom:50%;" />
 * 樟宜机场(Changi Airport)
   * 比较多的店铺在Jewel，1号航站楼外边
+  * 瀑布要十点十一点才会开
 * 虎豹别墅 --中国古代神话传说的故事的雕像和实景模型
 
 ### 购物
@@ -47,14 +48,12 @@
 
 ### 饭
 
+* yakun亚坤早餐 比较有特色的东西（咖椰吐司和半熟的蛋
+
 * 维多利亚街(bugis street)
-
 * (Hawker Center)
-
 * 了凡油鸡面(Soya Sauce Chicken Rice & Noodle)
   * 最便宜米其林一星
-
-* 亚坤？
 
 
 
