@@ -146,3 +146,8 @@
 
 [csdn传送门](https://blog.csdn.net/hjl2832/article/details/126951029)
 
+### keil debug not in scope
+
+https://blog.csdn.net/qq_44610809/article/details/125405894
+
+https://blog.csdn.net/wzk456/article/details/81697839
