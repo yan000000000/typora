@@ -151,3 +151,11 @@
 https://blog.csdn.net/qq_44610809/article/details/125405894
 
 https://blog.csdn.net/wzk456/article/details/81697839
+
+最后发现是pcb的设计问题，boot0应该上拉的结果搞成下拉了
+
+### keil invalid rom table
+
+不知道为啥电源从下载器接到面包板再接到芯片就不可以，报出这个错
+
+直接从下载器的电源接过去芯片就没事了
