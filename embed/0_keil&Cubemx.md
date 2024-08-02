@@ -159,3 +159,11 @@ https://blog.csdn.net/wzk456/article/details/81697839
 不知道为啥电源从下载器接到面包板再接到芯片就不可以，报出这个错
 
 直接从下载器的电源接过去芯片就没事了
+
+### keil 下程序internal command error
+
+估计是pcb焊接问题，我换了个SWD下载口就好了
+
+### keil Swd/Jtag conection failure
+
+一开始一直以为是板子的问题，疯狂用烙铁修修改改，搞了一个下午，最后才发现是无线下载器dap link 出了问题，但是最后又不知道怎么回事好了
