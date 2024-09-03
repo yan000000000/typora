@@ -70,3 +70,5 @@ Hello, I am yanlin, please feel free to take my work to review for the respectiv
   * **Mac:** bettertouchtool/ hammerspoon
 
 * Others
+
+![image-20240811030605165](assets/image-20240811030605165.png)
