@@ -31,7 +31,7 @@
 
 **Opportunity cost： Whatever must be given up to obtain some item**
 
-#### Rational People Think at the Margin
+#### Principle 3 Rational People Think at the Margin
 
 **Rational people: Systematically and purposefully do the best they can to achieve their goals, given the available opportunities**
 
